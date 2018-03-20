@@ -1,0 +1,170 @@
+
+
+HI-TECH Software PIC PRO Macro Assembler V9.83 build 10920 
+                                                                                               Wed Apr 26 01:28:09 2017
+
+HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
+     1                           	processor	16F684
+     2                           	opt	pw 120
+     3                           	opt	pm
+     4                           	psect	maintext,global,class=CODE,delta=2
+     5                           	psect	cinit,global,class=CODE,delta=2
+     6                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     7                           	psect	pa_nodes,global,class=CODE,delta=2
+     8                           	dabs	1,0x7E,2
+     9  000A                     
+    10                           	psect	maintext
+    11  07EC                     __pmaintext:	
+    12  0038                     _RC0	set	56
+    13  0087                     _TRISC	set	135
+    14  048C                     _ANS4	set	1164
+    15                           
+    16 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+    17 ;;Auto spaces:   Size  Autos    Used
+    18 ;; COMMON          14      3       3
+    19 ;; BANK0           80      0       0
+    20 ;; BANK1           32      0       0
+    21 ;;
+    22 ;; Pointer list with targets:
+    23 ;;
+    24 ;; Critical Paths under _main in COMMON
+    25 ;;
+    26 ;;   None.
+    27 ;;
+    28 ;; Critical Paths under _main in BANK0
+    29 ;;
+    30 ;;   None.
+    31 ;;
+    32 ;; Critical Paths under _main in BANK1
+    33 ;;
+    34 ;;   None.
+    35 ;;
+    36 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+    37 ;;
+    38 ;;
+    39 ;;Call Graph Tables:
+    40 ;;
+    41 ;; ---------------------------------------------------------------------------------
+    42 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+    43 ;; ---------------------------------------------------------------------------------
+    44 ;; (0) _main                                                 3     3      0       0
+    45 ;;                                              0 COMMON     3     3      0
+    46 ;; ---------------------------------------------------------------------------------
+    47 ;; Estimated maximum stack depth 0
+    48 ;; ---------------------------------------------------------------------------------
+    49 ;; Call Graph Graphs:
+    50 ;; _main (ROOT)
+    51 ;;
+    52 ;; Address spaces:
+    53 ;;Name               Size   Autos  Total    Cost      Usage
+    54 ;;BITCOMMON            E      0       0       0        0.0%
+    55 ;;EEDATA             100      0       0       0        0.0%
+    56 ;;NULL                 0      0       0       0        0.0%
+    57 ;;CODE                 0      0       0       0        0.0%
+    58 ;;COMMON               E      3       3       1       21.4%
+    59 ;;BITSFR0              0      0       0       1        0.0%
+    60 ;;SFR0                 0      0       0       1        0.0%
+    61 ;;BITSFR1              0      0       0       2        0.0%
+    62 ;;SFR1                 0      0       0       2        0.0%
+    63 ;;STACK                0      0       0       2        0.0%
+    64 ;;BITBANK0            50      0       0       3        0.0%
+    65 ;;BANK0               50      0       0       4        0.0%
+    66 ;;BANK1               20      0       0       5        0.0%
+    67 ;;ABS                  0      0       0       6        0.0%
+    68 ;;BITBANK1            20      0       0       7        0.0%
+    69 ;;DATA                 0      0       0       8        0.0%
+    70 ;; *************** function _main *****************
+    71 ;; Defined at:
+    72 ;;		line 6 in file "D:\Users\cmjx\Desktop\684-88\lx1\blink.c"
+    73 ;; Parameters:    Size  Location     Type
+    74 ;;		None
+    75 ;; Auto vars:     Size  Location     Type
+    76 ;;		None
+    77 ;; Return value:  Size  Location     Type
+    78 ;;		None               void
+    79 ;; Registers used:
+    80 ;;		wreg, status,2
+    81 ;; Tracked objects:
+    82 ;;		On entry : 17F/0
+    83 ;;		On exit  : 0/0
+    84 ;;		Unchanged: 0/0
+    85 ;; Data sizes:     COMMON   BANK0   BANK1
+    86 ;;      Params:         0       0       0
+    87 ;;      Locals:         0       0       0
+    88 ;;      Temps:          3       0       0
+    89 ;;      Totals:         3       0       0
+    90 ;;Total ram usage:        3 bytes
+    91 ;; This function calls:
+    92 ;;		Nothing
+    93 ;; This function is called by:
+    94 ;;		Startup code after reset
+    95 ;; This function uses a non-reentrant model
+    96 ;;
+    97  07EC                     _main:	
+    98                           
+    99                           ;blink.c: 7: TRISC=0;
+   100                           
+   101                           ; Regs used in _main: [wreg+status,2]
+   102  07EC  1683               	bsf	3,5	;RP0=1, select bank1
+   103  07ED  0187               	clrf	7	;volatile
+   104                           
+   105                           ;blink.c: 8: ANS4=0;
+   106  07EE  1211               	bcf	17,4
+   107  07EF                     l1931:	
+   108                           
+   109                           ;blink.c: 10: {
+   110                           ;blink.c: 11: RC0 = !RC0;
+   111  07EF  3001               	movlw	1
+   112  07F0  1283               	bcf	3,5	;RP0=0, select bank0
+   113  07F1  0687               	xorwf	7,f
+   114                           
+   115                           ;blink.c: 12: _delay((unsigned long)((500)*(4000000/4000.0)));
+   116  07F2  3003               	movlw	3
+   117  07F3  00F2               	movwf	??_main+2
+   118  07F4  308A               	movlw	138
+   119  07F5  00F1               	movwf	??_main+1
+   120  07F6  3056               	movlw	86
+   121  07F7  00F0               	movwf	??_main
+   122  07F8                     u17:	
+   123  07F8  0BF0               	decfsz	??_main,f
+   124  07F9  2FF8               	goto	u17
+   125  07FA  0BF1               	decfsz	??_main+1,f
+   126  07FB  2FF8               	goto	u17
+   127  07FC  0BF2               	decfsz	??_main+2,f
+   128  07FD  2FF8               	goto	u17
+   129  07FE  2FFF               	nop2
+   130  07FF  2FEF               	goto	l1931
+   131  0800                     __end_of_main:	
+   132                           
+   133 ;; =============== function _main ends ============
+   134  007E                     btemp	set	126	;btemp
+   135  007E                     wtemp0	set	126
+   136                           
+   137                           	psect	cinit
+   138  07EA                     start_initialization:	
+   139  07EA                     end_of_initialization:	
+   140                           ;End of C runtime variable initialization code
+   141                           
+   142  07EA  0183               	clrf	3
+   143  07EB  2FEC               	ljmp	_main	;jump to C main() function
+   144                           
+   145                           	psect	cstackCOMMON
+   146  0070                     __pcstackCOMMON:	
+   147  0070                     ?_main:	
+   148  0070                     ??_main:	
+   149                           ; 0 bytes @ 0x0
+   150                           
+   151                           
+   152                           ; 0 bytes @ 0x0
+   153  0070                     	ds	3
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Wed Apr 26 01:28:09 2017
+
+                  u17 07F8                   _RC0 0038                  l1931 07EF                  l1933 0000  
+                l1927 0000                  l1929 0000                  _ANS4 048C                  _main 07EC  
+                btemp 007E                  start 0000                 ?_main 0070                 _TRISC 0087  
+               status 0003                 wtemp0 007E          __end_of_main 0800                ??_main 0070  
+      __pcstackCOMMON 0070            __pmaintext 07EC  end_of_initialization 07EA   start_initialization 07EA  
+       __size_of_main 0014  
