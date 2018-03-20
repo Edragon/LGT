@@ -1,0 +1,273 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.83 build 10920 
+                                                                                               Sun Dec 17 13:36:51 2017
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 10920"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	12F609
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           	FNROOT	_main
+    43                           	global	_GP1
+    44                           psect	maintext,global,class=CODE,delta=2
+    45                           global __pmaintext
+    46  03DB                     __pmaintext:
+    47  0029                     _GP1	set	41
+    48                           	global	_TRISIO
+    49  0085                     _TRISIO	set	133
+    50                           	file	"blink.as"
+    51                           	line	#
+    52                           psect cinit,class=CODE,delta=2
+    53                           global start_initialization
+    54  03D9                     start_initialization:
+    55                           
+    56                           psect cinit,class=CODE,delta=2
+    57                           global end_of_initialization
+    58                           
+    59                           ;End of C runtime variable initialization code
+    60                           
+    61  03D9                     end_of_initialization:
+    62  03D9  0183               clrf status
+    63  03DA  2BDB               ljmp _main	;jump to C main() function
+    64                           psect	cstackCOMMON,class=COMMON,space=1
+    65                           global __pcstackCOMMON
+    66  0070                     __pcstackCOMMON:
+    67                           	global	?_main
+    68  0070                     ?_main:	; 0 bytes @ 0x0
+    69                           	global	??_main
+    70  0070                     ??_main:	; 0 bytes @ 0x0
+    71  0070                     	ds	3
+    72 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+    73 ;;Auto spaces:   Size  Autos    Used
+    74 ;; COMMON          14      3       3
+    75 ;; BANK0           48      0       0
+    76                           
+    77 ;;
+    78 ;; Pointer list with targets:
+    79                           
+    80                           
+    81                           
+    82 ;;
+    83 ;; Critical Paths under _main in COMMON
+    84 ;;
+    85 ;;   None.
+    86 ;;
+    87 ;; Critical Paths under _main in BANK0
+    88 ;;
+    89 ;;   None.
+    90                           
+    91 ;;
+    92 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+    93 ;;
+    94                           
+    95 ;;
+    96 ;;Call Graph Tables:
+    97 ;;
+    98 ;; ---------------------------------------------------------------------------------
+    99 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   100 ;; ---------------------------------------------------------------------------------
+   101 ;; (0) _main                                                 3     3      0       0
+   102 ;;                                              0 COMMON     3     3      0
+   103 ;; ---------------------------------------------------------------------------------
+   104 ;; Estimated maximum stack depth 0
+   105 ;; ---------------------------------------------------------------------------------
+   106                           
+   107 ;; Call Graph Graphs:
+   108                           
+   109 ;; _main (ROOT)
+   110 ;;
+   111                           
+   112 ;; Address spaces:
+   113                           
+   114 ;;Name               Size   Autos  Total    Cost      Usage
+   115 ;;BITCOMMON            E      0       0       0        0.0%
+   116 ;;NULL                 0      0       0       0        0.0%
+   117 ;;CODE                 0      0       0       0        0.0%
+   118 ;;COMMON               E      3       3       1       21.4%
+   119 ;;BITSFR0              0      0       0       1        0.0%
+   120 ;;SFR0                 0      0       0       1        0.0%
+   121 ;;BITSFR1              0      0       0       2        0.0%
+   122 ;;SFR1                 0      0       0       2        0.0%
+   123 ;;STACK                0      0       0       2        0.0%
+   124 ;;BITBANK0            30      0       0       3        0.0%
+   125 ;;BANK0               30      0       0       4        0.0%
+   126 ;;ABS                  0      0       0       5        0.0%
+   127 ;;DATA                 0      0       0       6        0.0%
+   128                           
+   129                           	global	_main
+   130                           psect	maintext
+   131                           
+   132 ;; *************** function _main *****************
+   133 ;; Defined at:
+   134 ;;		line 7 in file "D:\Users\cmjx\Desktop\653\blink.c"
+   135 ;; Parameters:    Size  Location     Type
+   136 ;;		None
+   137 ;; Auto vars:     Size  Location     Type
+   138 ;;		None
+   139 ;; Return value:  Size  Location     Type
+   140 ;;		None               void
+   141 ;; Registers used:
+   142 ;;		wreg
+   143 ;; Tracked objects:
+   144 ;;		On entry : 17F/0
+   145 ;;		On exit  : 0/0
+   146 ;;		Unchanged: 0/0
+   147 ;; Data sizes:     COMMON   BANK0
+   148 ;;      Params:         0       0
+   149 ;;      Locals:         0       0
+   150 ;;      Temps:          3       0
+   151 ;;      Totals:         3       0
+   152 ;;Total ram usage:        3 bytes
+   153 ;; This function calls:
+   154 ;;		Nothing
+   155 ;; This function is called by:
+   156 ;;		Startup code after reset
+   157 ;; This function uses a non-reentrant model
+   158 ;;
+   159                           psect	maintext
+   160                           	file	"D:\Users\cmjx\Desktop\653\blink.c"
+   161                           	line	7
+   162                           	global	__size_of_main
+   163  0025                     	__size_of_main	equ	__end_of_main-_main
+   164                           	
+   165  03DB                     _main:	
+   166                           	opt	stack 8
+   167                           ; Regs used in _main: [wreg]
+   168                           	line	8
+   169                           	
+   170  03DB                     l1501:	
+   171                           ;blink.c: 8: TRISIO=0b001000;
+   172  03DB  3008               	movlw	(08h)
+   173  03DC  1683               	bsf	status, 5	;RP0=1, select bank1
+   174  03DD  0085               	movwf	(133)^080h	;volatile
+   175  03DE  2BDF               	goto	l1503
+   176                           	line	9
+   177                           ;blink.c: 9: while(1)
+   178                           	
+   179  03DF                     l363:	
+   180                           	line	11
+   181                           	
+   182  03DF                     l1503:	
+   183                           ;blink.c: 10: {
+   184                           ;blink.c: 11: GP1=0;
+   185  03DF  1283               	bcf	status, 5	;RP0=0, select bank0
+   186  03E0  1085               	bcf	(41/8),(41)&7
+   187                           	line	12
+   188                           ;blink.c: 12: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   189                           	opt asmopt_off
+   190  03E1  3006               movlw  6
+   191  03E2  00F2               movwf	((??_main+0)+0+2),f
+   192  03E3  3013               movlw	19
+   193  03E4  00F1               movwf	((??_main+0)+0+1),f
+   194  03E5  30B1               	movlw	177
+   195  03E6  00F0               movwf	((??_main+0)+0),f
+   196  03E7                     u2147:
+   197  03E7  0BF0               	decfsz	((??_main+0)+0),f
+   198  03E8  2BE7               	goto	u2147
+   199  03E9  0BF1               	decfsz	((??_main+0)+0+1),f
+   200  03EA  2BE7               	goto	u2147
+   201  03EB  0BF2               	decfsz	((??_main+0)+0+2),f
+   202  03EC  2BE7               	goto	u2147
+   203  03ED  2BEE               	nop2
+   204                           opt asmopt_on
+   205                           
+   206                           	line	13
+   207                           	
+   208  03EE                     l1505:	
+   209                           ;blink.c: 13: GP1=1;
+   210  03EE  1283               	bcf	status, 5	;RP0=0, select bank0
+   211  03EF  1485               	bsf	(41/8),(41)&7
+   212                           	line	14
+   213                           ;blink.c: 14: _delay((unsigned long)((1000)*(4000000/4000.0)));
+   214                           	opt asmopt_off
+   215  03F0  3006               movlw  6
+   216  03F1  00F2               movwf	((??_main+0)+0+2),f
+   217  03F2  3013               movlw	19
+   218  03F3  00F1               movwf	((??_main+0)+0+1),f
+   219  03F4  30B1               	movlw	177
+   220  03F5  00F0               movwf	((??_main+0)+0),f
+   221  03F6                     u2157:
+   222  03F6  0BF0               	decfsz	((??_main+0)+0),f
+   223  03F7  2BF6               	goto	u2157
+   224  03F8  0BF1               	decfsz	((??_main+0)+0+1),f
+   225  03F9  2BF6               	goto	u2157
+   226  03FA  0BF2               	decfsz	((??_main+0)+0+2),f
+   227  03FB  2BF6               	goto	u2157
+   228  03FC  2BFD               	nop2
+   229                           opt asmopt_on
+   230                           
+   231  03FD  2BDF               	goto	l1503
+   232                           	line	15
+   233                           	
+   234  03FE                     l364:	
+   235                           	line	9
+   236  03FE  2BDF               	goto	l1503
+   237                           	
+   238  03FF                     l365:	
+   239                           	line	16
+   240                           	
+   241  03FF                     l366:	
+   242                           	global	start
+   243  03FF  2800               	ljmp	start
+   244                           	opt stack 0
+   245                           GLOBAL	__end_of_main
+   246  0400                     	__end_of_main:
+   247 ;; =============== function _main ends ============
+   248                           
+   249                           	signat	_main,88
+   250                           psect	maintext
+   251                           	global	btemp
+   252  007E                     	btemp set 07Eh
+   253                           
+   254                           	DABS	1,126,2	;btemp
+   255                           	global	wtemp0
+   256  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Sun Dec 17 13:36:51 2017
+
+                 l363 03DF                   l364 03FE                   l365 03FF                   l366 03FF  
+                 _GP1 0029                  l1501 03DB                  l1503 03DF                  l1505 03EE  
+                u2147 03E7                  u2157 03F6                  _main 03DB                  btemp 007E  
+                start 0000                 ?_main 0070                 status 0003                 wtemp0 007E  
+        __end_of_main 0400                ??_main 0070                _TRISIO 0085        __pcstackCOMMON 0070  
+          __pmaintext 03DB  end_of_initialization 03D9   start_initialization 03D9         __size_of_main 0025  

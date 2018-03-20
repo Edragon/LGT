@@ -1,0 +1,125 @@
+HI-TECH Software C Compiler 
+
+Linker command line:
+
+--edf=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\dat\en_msgs.txt -cs \
+  -h+blink.sym -z -Q12F609 -ol.obj -Mblink.map -E1 -ACONST=00h-0FFhx4 \
+  -ACODE=00h-03FFh -ASTRCODE=00h-03FFh -AENTRY=00h-0FFhx4 \
+  -ASTRING=00h-0FFhx4 -ABANK0=040h-06Fh -ARAM=040h-06Fh -AABS1=040h-07Fh \
+  -ACOMMON=070h-07Fh -ASFR0=00h-03Fh -ASFR1=080h-0EFh \
+  -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pfunctab=CODE \
+  -ACONFIG=02007h-02007h -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h \
+  -pidloc=IDLOC -DIDLOC=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
+  -DENTRY=2 -k startup.obj blink.obj 
+
+Object code version is 3.10
+
+Machine type is 12F609
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+startup.obj     end_init                              0        0        1        0       0
+blink.obj       cstackCOMMON                         70       70        3       70       1
+                cinit                               3D9      3D9        2      7B2       0
+                maintext                            3DB      3DB       25      7B6       0
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   CONST          
+
+        CLASS   CODE           
+                end_init                              0        0        1         0
+                cinit                               3D9      3D9        2         0
+                maintext                            3DB      3DB       25         0
+
+        CLASS   STRCODE        
+
+        CLASS   ENTRY          
+
+        CLASS   STRING         
+
+        CLASS   BANK0          
+
+        CLASS   RAM            
+
+        CLASS   ABS1           
+                abs_s1                               7E       7E        2         1
+
+        CLASS   COMMON         
+                cstackCOMMON                         70       70        3         1
+
+        CLASS   SFR0           
+
+        CLASS   SFR1           
+
+        CLASS   CONFIG         
+
+        CLASS   IDLOC          
+
+        CLASS   BANK1          
+
+        CLASS   EEDATA         
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
+
+                reset_vec                      000000  000001  000001         0       0  CODE        2
+                cstackCOMMON                   000070  000003  000073        70       1  COMMON      1
+                cinit                          0003D9  000002  0003DB       7B2       0  CODE        2
+                maintext                       0003DB  000025  000400       7B6       0  CODE        2
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK0            040-06F            30           1
+        CODE             001-3D8           3D8           2
+        COMMON           073-07D             B           1
+        CONFIG           2007-2007             1           2
+        CONST            001-3D8           100           2
+        ENTRY            001-3D8           100           2
+        IDLOC            2000-2003             4           2
+        RAM              040-06F            30           1
+        SFR0             000-03F            40           1
+        SFR1             080-0EF            70           1
+        STRCODE          001-3D8           3D8           2
+        STRING           001-3D8           100           2
+
+                                  Symbol Table
+
+??_main               cstackCOMMON 070  ?_main                cstackCOMMON 070
+_GP1                  (abs)        029  _TRISIO               (abs)        085
+__Habs1               abs1         000  __Hbank0              bank0        000
+__Hbank1              bank1        000  __Hcinit              cinit        000
+__Hclrtext            clrtext      000  __Hcode               code         000
+__Hcommon             common       000  __Hconfig             config       000
+__HcstackCOMMON       cstackCOMMON 000  __Heeprom_data        eeprom_data  000
+__Hend_init           end_init     001  __Hfunctab            functab      000
+__Hidloc              idloc        000  __Hinit               init         000
+__Hintentry           intentry     000  __Hmaintext           maintext     000
+__Hpowerup            powerup      000  __Hram                ram          000
+__Hreset_vec          reset_vec    000  __Hsfr0               sfr0         000
+__Hsfr1               sfr1         000  __Hstrings            strings      000
+__Htext               text         000  __Labs1               abs1         000
+__Lbank0              bank0        000  __Lbank1              bank1        000
+__Lcinit              cinit        000  __Lclrtext            clrtext      000
+__Lcode               code         000  __Lcommon             common       000
+__Lconfig             config       000  __LcstackCOMMON       cstackCOMMON 000
+__Leeprom_data        eeprom_data  000  __Lend_init           end_init     000
+__Lfunctab            functab      000  __Lidloc              idloc        000
+__Linit               init         000  __Lintentry           intentry     000
+__Lmaintext           maintext     000  __Lpowerup            powerup      000
+__Lram                ram          000  __Lreset_vec          reset_vec    000
+__Lsfr0               sfr0         000  __Lsfr1               sfr1         000
+__Lstrings            strings      000  __Ltext               text         000
+__S0                  (abs)        400  __S1                  (abs)        073
+__end_of_main         maintext     400  __pcstackCOMMON       cstackCOMMON 070
+__pmaintext           maintext     3DB  __size_of_main        (abs)        000
+_exit                 init         000  _main                 maintext     3DB
+btemp                 (abs)        07E  end_of_initialization cinit        3D9
+intlevel0             functab      000  intlevel1             functab      000
+intlevel2             functab      000  intlevel3             functab      000
+intlevel4             functab      000  intlevel5             functab      000
+reset_vec             reset_vec    000  start                 init         000
+start_initialization  cinit        3D9  wtemp0                (abs)        07E

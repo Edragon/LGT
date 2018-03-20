@@ -1,0 +1,980 @@
+
+
+HI-TECH Software PIC PRO Macro Assembler V9.83 build 10920 
+                                                                                               Sat Dec 16 20:10:34 2017
+
+HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
+     1                           	processor	12F609
+     2                           	opt	pw 120
+     3                           	opt	pm
+     4                           	psect	text158,local,class=CODE,delta=2
+     5                           	psect	cinit,global,class=CODE,delta=2
+     6                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1
+     7                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     8                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     9                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    10                           	psect	maintext,global,class=CODE,delta=2
+    11                           	psect	swtext1,local,class=CONST,delta=2
+    12                           	psect	text159,local,class=CODE,delta=2
+    13                           	psect	text160,local,class=CODE,delta=2
+    14                           	psect	text161,local,class=CODE,delta=2
+    15                           	psect	text162,local,class=CODE,delta=2
+    16                           	psect	text163,local,class=CODE,delta=2
+    17                           	psect	text164,local,class=CODE,delta=2
+    18                           	psect	intentry,global,class=CODE,delta=2
+    19                           	psect	text165,local,class=CODE,delta=2
+    20                           	psect	pa_nodes,global,class=CODE,delta=2
+    21                           	dabs	1,0x7E,2
+    22  000A                     
+    23                           	psect	text158
+    24  0000                     __ptext158:	
+    25  005F                     _GIE	set	95
+    26  005B                     _GPIE	set	91
+    27  0058                     _GPIF	set	88
+    28  002D                     _RA5	set	45
+    29  005D                     _T0IE	set	93
+    30  005A                     _T0IF	set	90
+    31  009F                     _ANSEL	set	159
+    32  0096                     _IOCA	set	150
+    33  0081                     _OPTION_REG	set	129
+    34  0092                     _PR0L	set	146
+    35  0091                     _T0CON	set	145
+    36  0095                     _WPUA	set	149
+    37  0476                     _CWOK	set	1142
+    38  042D                     _TRISA5	set	1069
+    39  040F                     _nGPPU	set	1039
+    40  002A                     _RA2	set	42
+    41                           
+    42                           	psect	cinit
+    43  00D3                     start_initialization:	
+    44                           
+    45                           ; Clear objects allocated to COMMON
+    46  00D3  01F5               	clrf	__pbssCOMMON& (0+127)
+    47                           
+    48                           ; Clear objects allocated to BANK0
+    49  00D4  01C8               	clrf	__pbssBANK0& (0+127)
+    50  00D5  01C9               	clrf	(__pbssBANK0+1)& (0+127)
+    51  00D6                     end_of_initialization:	
+    52                           ;End of C runtime variable initialization code
+    53                           
+    54  00D6  0183               	clrf	3
+    55  00D7  280B               	ljmp	_main	;jump to C main() function
+    56                           
+    57                           	psect	bssCOMMON
+    58  0075                     __pbssCOMMON:	
+    59  0075                     _ird_cnt:	
+    60  0075                     	ds	1
+    61                           
+    62                           	psect	bssBANK0
+    63  0048                     __pbssBANK0:	
+    64  0048                     _ird_flg:	
+    65  0048                     	ds	1
+    66  0049                     _ird_prd:	
+    67  0049                     	ds	1
+    68                           
+    69                           	psect	cstackCOMMON
+    70  0070                     __pcstackCOMMON:	
+    71  0070                     ?_sys_init:	
+    72  0070                     ?_uart_putc:	
+    73                           ; 0 bytes @ 0x0
+    74                           
+    75  0070                     ?_uart_init:	
+    76                           ; 0 bytes @ 0x0
+    77                           
+    78  0070                     ?_io_init:	
+    79                           ; 0 bytes @ 0x0
+    80                           
+    81  0070                     ?_tmr0_init:	
+    82                           ; 0 bytes @ 0x0
+    83                           
+    84  0070                     ?_hisr:	
+    85                           ; 0 bytes @ 0x0
+    86                           
+    87  0070                     ??_hisr:	
+    88                           ; 0 bytes @ 0x0
+    89                           
+    90  0070                     ?_main:	
+    91                           ; 0 bytes @ 0x0
+    92                           
+    93                           
+    94                           ; 2 bytes @ 0x0
+    95  0070                     	ds	2
+    96  0072                     ??_sys_init:	
+    97  0072                     ??_uart_putc:	
+    98                           ; 0 bytes @ 0x2
+    99                           
+   100  0072                     ??_uart_init:	
+   101                           ; 0 bytes @ 0x2
+   102                           
+   103  0072                     ??_io_init:	
+   104                           ; 0 bytes @ 0x2
+   105                           
+   106  0072                     ??_tmr0_init:	
+   107                           ; 0 bytes @ 0x2
+   108                           
+   109                           
+   110                           ; 0 bytes @ 0x2
+   111  0072                     	ds	1
+   112  0073                     uart_putc@c:	
+   113                           
+   114                           ; 1 bytes @ 0x3
+   115  0073                     	ds	1
+   116  0074                     uart_putc@i:	
+   117                           
+   118                           ; 1 bytes @ 0x4
+   119  0074                     	ds	1
+   120  0075                     ??_main:	
+   121                           
+   122                           	psect	cstackBANK0
+   123  0040                     __pcstackBANK0:	
+   124                           ; 0 bytes @ 0x5
+   125                           
+   126  0040                     main@ira_buf:	
+   127                           
+   128                           ; 5 bytes @ 0x0
+   129  0040                     	ds	5
+   130  0045                     main@ira_bit:	
+   131                           
+   132                           ; 1 bytes @ 0x5
+   133  0045                     	ds	1
+   134  0046                     main@edg_flg:	
+   135                           
+   136                           ; 1 bytes @ 0x6
+   137  0046                     	ds	1
+   138  0047                     main@main_st:	
+   139                           
+   140                           ; 1 bytes @ 0x7
+   141  0047                     	ds	1
+   142                           
+   143                           	psect	maintext
+   144  000B                     __pmaintext:	
+   145 ;;Data sizes: Strings 0, constant 0, data 0, bss 3, persistent 0 stack 0
+   146 ;;Auto spaces:   Size  Autos    Used
+   147 ;; COMMON          14      5       6
+   148 ;; BANK0           48      8      10
+   149 ;;
+   150 ;; Pointer list with targets:
+   151 ;;
+   152 ;; Critical Paths under _main in COMMON
+   153 ;;
+   154 ;;   _main->_uart_putc
+   155 ;;
+   156 ;; Critical Paths under _hisr in COMMON
+   157 ;;
+   158 ;;   None.
+   159 ;;
+   160 ;; Critical Paths under _main in BANK0
+   161 ;;
+   162 ;;   None.
+   163 ;;
+   164 ;; Critical Paths under _hisr in BANK0
+   165 ;;
+   166 ;;   None.
+   167 ;;
+   168 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   169 ;;
+   170 ;;
+   171 ;;Call Graph Tables:
+   172 ;;
+   173 ;; ---------------------------------------------------------------------------------
+   174 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   175 ;; ---------------------------------------------------------------------------------
+   176 ;; (0) _main                                                 8     8      0     441
+   177 ;;                                              0 BANK0      8     8      0
+   178 ;;                           _sys_init
+   179 ;;                          _uart_putc
+   180 ;; ---------------------------------------------------------------------------------
+   181 ;; (1) _uart_putc                                            3     3      0      69
+   182 ;;                                              2 COMMON     3     3      0
+   183 ;; ---------------------------------------------------------------------------------
+   184 ;; (1) _sys_init                                             0     0      0       0
+   185 ;;                          _uart_init
+   186 ;;                            _io_init
+   187 ;;                          _tmr0_init
+   188 ;; ---------------------------------------------------------------------------------
+   189 ;; (2) _tmr0_init                                            0     0      0       0
+   190 ;; ---------------------------------------------------------------------------------
+   191 ;; (2) _io_init                                              0     0      0       0
+   192 ;; ---------------------------------------------------------------------------------
+   193 ;; (2) _uart_init                                            0     0      0       0
+   194 ;; ---------------------------------------------------------------------------------
+   195 ;; Estimated maximum stack depth 2
+   196 ;; ---------------------------------------------------------------------------------
+   197 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   198 ;; ---------------------------------------------------------------------------------
+   199 ;; (3) _hisr                                                 2     2      0       0
+   200 ;;                                              0 COMMON     2     2      0
+   201 ;; ---------------------------------------------------------------------------------
+   202 ;; Estimated maximum stack depth 3
+   203 ;; ---------------------------------------------------------------------------------
+   204 ;; Call Graph Graphs:
+   205 ;; _main (ROOT)
+   206 ;;   _sys_init
+   207 ;;     _uart_init
+   208 ;;     _io_init
+   209 ;;     _tmr0_init
+   210 ;;   _uart_putc
+   211 ;;
+   212 ;; _hisr (ROOT)
+   213 ;;
+   214 ;; Address spaces:
+   215 ;;Name               Size   Autos  Total    Cost      Usage
+   216 ;;BITCOMMON            E      0       0       0        0.0%
+   217 ;;NULL                 0      0       0       0        0.0%
+   218 ;;CODE                 0      0       0       0        0.0%
+   219 ;;COMMON               E      5       6       1       42.9%
+   220 ;;BITSFR0              0      0       0       1        0.0%
+   221 ;;SFR0                 0      0       0       1        0.0%
+   222 ;;BITSFR1              0      0       0       2        0.0%
+   223 ;;SFR1                 0      0       0       2        0.0%
+   224 ;;STACK                0      0       2       2        0.0%
+   225 ;;BITBANK0            30      0       0       3        0.0%
+   226 ;;BANK0               30      8       A       4       20.8%
+   227 ;;ABS                  0      0      10       5        0.0%
+   228 ;;DATA                 0      0      12       6        0.0%
+   229                           
+   230                           
+   231 ;; *************** function _main *****************
+   232 ;; Defined at:
+   233 ;;		line 52 in file "E:\Projects\PDN0907\test\lgt8p663a_ira\iocr_ira.c"
+   234 ;; Parameters:    Size  Location     Type
+   235 ;;		None
+   236 ;; Auto vars:     Size  Location     Type
+   237 ;;  ira_buf         5    0[BANK0 ] unsigned char [5]
+   238 ;;  main_st         1    7[BANK0 ] volatile unsigned char 
+   239 ;;  edg_flg         1    6[BANK0 ] volatile unsigned char 
+   240 ;;  ira_bit         1    5[BANK0 ] volatile unsigned char 
+   241 ;; Return value:  Size  Location     Type
+   242 ;;                  2  792[COMMON] int 
+   243 ;; Registers used:
+   244 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   245 ;; Tracked objects:
+   246 ;;		On entry : 17F/0
+   247 ;;		On exit  : 20/0
+   248 ;;		Unchanged: 0/0
+   249 ;; Data sizes:     COMMON   BANK0
+   250 ;;      Params:         0       0
+   251 ;;      Locals:         0       8
+   252 ;;      Temps:          0       0
+   253 ;;      Totals:         0       8
+   254 ;;Total ram usage:        8 bytes
+   255 ;; Hardware stack levels required when called:    3
+   256 ;; This function calls:
+   257 ;;		_sys_init
+   258 ;;		_uart_putc
+   259 ;; This function is called by:
+   260 ;;		Startup code after reset
+   261 ;; This function uses a non-reentrant model
+   262 ;;
+   263  000B                     _main:	
+   264                           
+   265                           ;iocr_ira.c: 53: u8 ira_buf[5];
+   266                           ;iocr_ira.c: 54: volatile u8 main_st = 0;
+   267                           
+   268                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   269  000B  01C7               	clrf	main@main_st	;volatile
+   270                           
+   271                           ;iocr_ira.c: 55: volatile u8 ira_bit = 0;
+   272  000C  01C5               	clrf	main@ira_bit	;volatile
+   273                           
+   274                           ;iocr_ira.c: 56: volatile u8 edg_flg;
+   275                           ;iocr_ira.c: 58: CWOK = 1;
+   276  000D  1683               	bsf	3,5	;RP0=1, select bank1
+   277  000E  170E               	bsf	14,6
+   278                           
+   279                           ;iocr_ira.c: 59: _nop();
+   280  000F  0000               	nop
+   281                           
+   282                           ;iocr_ira.c: 60: _nop();
+   283  0010  0000               	nop
+   284                           
+   285                           ;iocr_ira.c: 62: sys_init();
+   286  0011  20D8               	fcall	_sys_init
+   287  0012  3055               	movlw	85
+   288                           
+   289                           ;iocr_ira.c: 64: GIE = 0;
+   290  0013  138B               	bcf	11,7
+   291                           
+   292                           ;iocr_ira.c: 65: uart_putc(0x55);
+   293  0014  2078               	fcall	_uart_putc
+   294                           
+   295                           ;iocr_ira.c: 66: uart_putc(0xaa);
+   296  0015  30AA               	movlw	170
+   297  0016  2078               	fcall	_uart_putc
+   298                           
+   299                           ;iocr_ira.c: 67: GIE = 1;
+   300  0017  178B               	bsf	11,7
+   301                           
+   302                           ;iocr_ira.c: 94: switch(main_st)
+   303  0018  2850               	goto	l2229
+   304  0019                     l2249:	
+   305                           
+   306                           ;iocr_ira.c: 97: if(ird_prd > 0x9a && edg_flg == 1)
+   307  0019  309B               	movlw	155
+   308  001A  0249               	subwf	_ird_prd,w	;volatile
+   309  001B  1C03               	skipc
+   310  001C  2850               	goto	l2229
+   311  001D  0B46               	decfsz	main@edg_flg,w	;volatile
+   312  001E  2850               	goto	l2229
+   313                           
+   314                           ;iocr_ira.c: 98: {
+   315                           ;iocr_ira.c: 99: main_st = 1;
+   316  001F  01C7               	clrf	main@main_st	;volatile
+   317  0020  2847               	goto	l2279
+   318  0021                     l2255:	
+   319                           
+   320                           ;iocr_ira.c: 104: if(ird_prd > 0x4a && edg_flg == 0)
+   321  0021  304B               	movlw	75
+   322  0022  0249               	subwf	_ird_prd,w	;volatile
+   323  0023  1C03               	skipc
+   324  0024  282C               	goto	l2263
+   325  0025  08C6               	movf	main@edg_flg,f
+   326  0026  1D03               	skipz
+   327  0027  282C               	goto	l2263
+   328  0028  3002               	movlw	2
+   329                           
+   330                           ;iocr_ira.c: 105: {
+   331                           ;iocr_ira.c: 106: ira_buf[0] = 0;
+   332  0029  01C0               	clrf	main@ira_buf
+   333                           
+   334                           ;iocr_ira.c: 107: main_st = 2;
+   335  002A  00C7               	movwf	main@main_st	;volatile
+   336                           
+   337                           ;iocr_ira.c: 108: }
+   338  002B  2850               	goto	l2229
+   339  002C                     l2263:	
+   340                           
+   341                           ;iocr_ira.c: 109: else
+   342                           ;iocr_ira.c: 110: {
+   343                           ;iocr_ira.c: 111: main_st = 0;
+   344  002C  01C7               	clrf	main@main_st	;volatile
+   345  002D  2850               	goto	l2229
+   346  002E                     l806:	
+   347  002E                     l2265:	
+   348                           
+   349                           ;iocr_ira.c: 115: case 3:
+   350                           ;iocr_ira.c: 116: case 4:
+   351                           ;iocr_ira.c: 117: case 5:
+   352                           ;iocr_ira.c: 118: if(edg_flg == 1)
+   353  002E  0B46               	decfsz	main@edg_flg,w	;volatile
+   354  002F  2831               	goto	l2269
+   355  0030  2850               	goto	l2229
+   356  0031                     l2269:	
+   357                           
+   358                           ;iocr_ira.c: 121: if(ird_prd > 0x18)
+   359  0031  3019               	movlw	25
+   360  0032  0249               	subwf	_ird_prd,w	;volatile
+   361  0033  1C03               	skipc
+   362  0034  283B               	goto	l2273
+   363                           
+   364                           ;iocr_ira.c: 122: ira_buf[main_st - 2] |= 1;
+   365  0035  0847               	movf	main@main_st,w
+   366  0036  3EFE               	addlw	254
+   367  0037  3E40               	addlw	main@ira_buf& (0+255)
+   368  0038  0084               	movwf	4
+   369  0039  1383               	bcf	3,7	;select IRP bank0
+   370  003A  1400               	bsf	0,0
+   371  003B                     l2273:	
+   372                           
+   373                           ;iocr_ira.c: 123: if(++ira_bit > 7)
+   374  003B  3008               	movlw	8
+   375  003C  0AC5               	incf	main@ira_bit,f	;volatile
+   376  003D  0245               	subwf	main@ira_bit,w	;volatile
+   377  003E  1C03               	skipc
+   378  003F  2849               	goto	l2281
+   379                           
+   380                           ;iocr_ira.c: 124: {
+   381                           ;iocr_ira.c: 125: ira_bit = 0;
+   382  0040  01C5               	clrf	main@ira_bit	;volatile
+   383                           
+   384                           ;iocr_ira.c: 126: ira_buf[main_st - 1] = 0;
+   385  0041  0847               	movf	main@main_st,w
+   386  0042  3EFF               	addlw	255
+   387  0043  3E40               	addlw	main@ira_buf& (0+255)
+   388  0044  0084               	movwf	4
+   389  0045  1383               	bcf	3,7	;select IRP bank0
+   390  0046  0180               	clrf	0
+   391  0047                     l2279:	
+   392                           
+   393                           ;iocr_ira.c: 127: main_st++;
+   394  0047  0AC7               	incf	main@main_st,f	;volatile
+   395                           
+   396                           ;iocr_ira.c: 128: break;
+   397  0048  2850               	goto	l2229
+   398  0049                     l2281:	
+   399                           
+   400                           ;iocr_ira.c: 129: }
+   401                           ;iocr_ira.c: 130: ira_buf[main_st - 2] <<= 1;
+   402  0049  0847               	movf	main@main_st,w
+   403  004A  3EFE               	addlw	254
+   404  004B  3E40               	addlw	main@ira_buf& (0+255)
+   405  004C  0084               	movwf	4
+   406  004D  1383               	bcf	3,7	;select IRP bank0
+   407  004E  1003               	clrc
+   408  004F  0D80               	rlf	0,f
+   409  0050                     l2229:	
+   410                           ;iocr_ira.c: 131: break;
+   411                           
+   412                           
+   413                           ;iocr_ira.c: 70: {
+   414                           ;iocr_ira.c: 71: if(main_st == 6) {
+   415  0050  1283               	bcf	3,5	;RP0=0, select bank0
+   416  0051  0847               	movf	main@main_st,w	;volatile
+   417  0052  3A06               	xorlw	6
+   418  0053  1D03               	skipz
+   419  0054  2864               	goto	l2239
+   420                           
+   421                           ;iocr_ira.c: 72: GIE = 0;
+   422  0055  138B               	bcf	11,7
+   423                           
+   424                           ;iocr_ira.c: 73: uart_putc(ira_buf[0]);
+   425  0056  0840               	movf	main@ira_buf,w
+   426  0057  2078               	fcall	_uart_putc
+   427                           
+   428                           ;iocr_ira.c: 74: uart_putc(ira_buf[1]);
+   429  0058  1283               	bcf	3,5	;RP0=0, select bank0
+   430  0059  0841               	movf	main@ira_buf+1,w
+   431  005A  2078               	fcall	_uart_putc
+   432                           
+   433                           ;iocr_ira.c: 75: uart_putc(ira_buf[2]);
+   434  005B  1283               	bcf	3,5	;RP0=0, select bank0
+   435  005C  0842               	movf	main@ira_buf+2,w
+   436  005D  2078               	fcall	_uart_putc
+   437                           
+   438                           ;iocr_ira.c: 76: uart_putc(ira_buf[3]);
+   439  005E  1283               	bcf	3,5	;RP0=0, select bank0
+   440  005F  0843               	movf	main@ira_buf+3,w
+   441  0060  2078               	fcall	_uart_putc
+   442                           
+   443                           ;iocr_ira.c: 77: GIE = 1;
+   444  0061  178B               	bsf	11,7
+   445                           
+   446                           ;iocr_ira.c: 79: main_st = 0;
+   447  0062  1283               	bcf	3,5	;RP0=0, select bank0
+   448  0063  01C7               	clrf	main@main_st	;volatile
+   449  0064                     l2239:	
+   450                           
+   451                           ;iocr_ira.c: 80: }
+   452                           ;iocr_ira.c: 88: if(ird_flg == 0)
+   453  0064  08C8               	movf	_ird_flg,f
+   454  0065  1903               	btfsc	3,2
+   455  0066  2850               	goto	l2229
+   456                           
+   457                           ;iocr_ira.c: 91: edg_flg = ird_flg & 1;
+   458  0067  0848               	movf	_ird_flg,w
+   459  0068  00C6               	movwf	main@edg_flg	;volatile
+   460  0069  3001               	movlw	1
+   461  006A  05C6               	andwf	main@edg_flg,f	;volatile
+   462                           
+   463                           ;iocr_ira.c: 92: ird_flg = 0;
+   464  006B  01C8               	clrf	_ird_flg	;volatile
+   465  006C  0847               	movf	main@main_st,w	;volatile
+   466                           
+   467                           ; Switch size 1, requested type "space"
+   468                           ; Number of cases is 6, Range of values is 0 to 5
+   469                           ; switch strategies available:
+   470                           ; Name         Instructions Cycles
+   471                           ; direct_byte           12     6 (fixed)
+   472                           ; simple_byte           19    10 (average)
+   473                           ; jumptable            260     6 (fixed)
+   474                           ; rangetable            10     6 (fixed)
+   475                           ; spacedrange           18     9 (fixed)
+   476                           ; locatedrange           6     3 (fixed)
+   477                           ;	Chosen strategy is direct_byte
+   478  006D  0084               	movwf	4
+   479  006E  3006               	movlw	6
+   480  006F  0204               	subwf	4,w
+   481  0070  1803               	skipnc
+   482  0071  2850               	goto	l2229
+   483  0072  3000               	movlw	high S2323
+   484  0073  008A               	movwf	10
+   485  0074  30CD               	movlw	low S2323
+   486  0075  0704               	addwf	4,w
+   487  0076  0082               	movwf	2
+   488  0077  280A               	ljmp	start
+   489  0078                     __end_of_main:	
+   490                           
+   491                           	psect	swtext1
+   492  00CD                     __pswtext1:	
+   493  00CD                     S2323:	
+   494  00CD  2819               	ljmp	l2249
+   495  00CE  2821               	ljmp	l2255
+   496  00CF  282E               	ljmp	l806
+   497  00D0  282E               	ljmp	l2265
+   498  00D1  282E               	ljmp	l2265
+   499  00D2  282E               	ljmp	l2265
+   500                           
+   501                           	psect	text159
+   502  0078                     __ptext159:	
+   503 ;; =============== function _main ends ============
+   504                           
+   505                           
+   506 ;; *************** function _uart_putc *****************
+   507 ;; Defined at:
+   508 ;;		line 21 in file "E:\Projects\PDN0907\test\lgt8p663a_ira\uart.c"
+   509 ;; Parameters:    Size  Location     Type
+   510 ;;  c               1    wreg     unsigned char 
+   511 ;; Auto vars:     Size  Location     Type
+   512 ;;  c               1    3[COMMON] unsigned char 
+   513 ;;  i               1    4[COMMON] unsigned char 
+   514 ;; Return value:  Size  Location     Type
+   515 ;;		None               void
+   516 ;; Registers used:
+   517 ;;		wreg, status,2, status,0
+   518 ;; Tracked objects:
+   519 ;;		On entry : 0/20
+   520 ;;		On exit  : 0/0
+   521 ;;		Unchanged: 0/0
+   522 ;; Data sizes:     COMMON   BANK0
+   523 ;;      Params:         0       0
+   524 ;;      Locals:         2       0
+   525 ;;      Temps:          1       0
+   526 ;;      Totals:         3       0
+   527 ;;Total ram usage:        3 bytes
+   528 ;; Hardware stack levels used:    1
+   529 ;; Hardware stack levels required when called:    1
+   530 ;; This function calls:
+   531 ;;		Nothing
+   532 ;; This function is called by:
+   533 ;;		_main
+   534 ;; This function uses a non-reentrant model
+   535 ;;
+   536  0078                     _uart_putc:	
+   537                           
+   538                           ; Regs used in _uart_putc: [wreg+status,2+status,0]
+   539                           ;uart_putc@c stored from wreg
+   540  0078  00F3               	movwf	uart_putc@c
+   541  0079  3067               	movlw	103
+   542                           
+   543                           ;uart.c: 22: u8 i;
+   544                           ;uart.c: 25: RA5 = 0;
+   545  007A  1283               	bcf	3,5	;RP0=0, select bank0
+   546  007B  1285               	bcf	5,5
+   547                           
+   548                           ;uart.c: 26: _delay((unsigned long)((39)*(32000000/4000000.0)));
+   549  007C  00F2               	movwf	??_uart_putc
+   550  007D                     u357:	
+   551  007D  0BF2               	decfsz	??_uart_putc,f
+   552  007E  287D               	goto	u357
+   553  007F  2880               	nop2	;nop
+   554                           
+   555                           ;uart.c: 29: for(i = 0; i < 8; i++) {
+   556  0080  01F4               	clrf	uart_putc@i
+   557  0081                     l1596:	
+   558                           
+   559                           ;uart.c: 30: RA5 = c & 1;
+   560  0081  1C73               	btfss	uart_putc@c,0
+   561  0082  2886               	goto	u230
+   562  0083  1283               	bcf	3,5	;RP0=0, select bank0
+   563  0084  1685               	bsf	5,5
+   564  0085  2888               	goto	u244
+   565  0086                     u230:	
+   566  0086  1283               	bcf	3,5	;RP0=0, select bank0
+   567  0087  1285               	bcf	5,5
+   568  0088                     u244:	
+   569  0088  3067               	movlw	103
+   570                           
+   571                           ;uart.c: 31: c = c >> 1;
+   572  0089  1003               	clrc
+   573  008A  0CF3               	rrf	uart_putc@c,f
+   574                           
+   575                           ;uart.c: 32: _delay((unsigned long)((39)*(32000000/4000000.0)));
+   576  008B  00F2               	movwf	??_uart_putc
+   577  008C                     u367:	
+   578  008C  0BF2               	decfsz	??_uart_putc,f
+   579  008D  288C               	goto	u367
+   580  008E  288F               	nop2	;nop
+   581  008F  3008               	movlw	8
+   582  0090  0AF4               	incf	uart_putc@i,f
+   583  0091  0274               	subwf	uart_putc@i,w
+   584  0092  1C03               	skipc
+   585  0093  2881               	goto	l1596
+   586  0094  3067               	movlw	103
+   587                           
+   588                           ;uart.c: 33: }
+   589                           ;uart.c: 36: RA5 = 1;
+   590  0095  1283               	bcf	3,5	;RP0=0, select bank0
+   591  0096  1685               	bsf	5,5
+   592                           
+   593                           ;uart.c: 37: _delay((unsigned long)((39)*(32000000/4000000.0)));
+   594  0097  00F2               	movwf	??_uart_putc
+   595  0098                     u377:	
+   596  0098  0BF2               	decfsz	??_uart_putc,f
+   597  0099  2898               	goto	u377
+   598  009A  289B               	nop2	;nop
+   599                           
+   600                           ;uart.c: 38: _delay((unsigned long)((39)*(32000000/4000000.0)));
+   601  009B  3067               	movlw	103
+   602  009C  00F2               	movwf	??_uart_putc
+   603  009D                     u387:	
+   604  009D  0BF2               	decfsz	??_uart_putc,f
+   605  009E  289D               	goto	u387
+   606  009F  28A0               	nop2	;nop
+   607  00A0  0008               	return
+   608  00A1                     __end_of_uart_putc:	
+   609                           
+   610                           	psect	text160
+   611  00D8                     __ptext160:	
+   612 ;; =============== function _uart_putc ends ============
+   613                           
+   614                           
+   615 ;; *************** function _sys_init *****************
+   616 ;; Defined at:
+   617 ;;		line 138 in file "E:\Projects\PDN0907\test\lgt8p663a_ira\iocr_ira.c"
+   618 ;; Parameters:    Size  Location     Type
+   619 ;;		None
+   620 ;; Auto vars:     Size  Location     Type
+   621 ;;		None
+   622 ;; Return value:  Size  Location     Type
+   623 ;;		None               void
+   624 ;; Registers used:
+   625 ;;		wreg, status,2, status,0, pclath, cstack
+   626 ;; Tracked objects:
+   627 ;;		On entry : 0/20
+   628 ;;		On exit  : 20/20
+   629 ;;		Unchanged: FFFDF/0
+   630 ;; Data sizes:     COMMON   BANK0
+   631 ;;      Params:         0       0
+   632 ;;      Locals:         0       0
+   633 ;;      Temps:          0       0
+   634 ;;      Totals:         0       0
+   635 ;;Total ram usage:        0 bytes
+   636 ;; Hardware stack levels used:    1
+   637 ;; Hardware stack levels required when called:    2
+   638 ;; This function calls:
+   639 ;;		_uart_init
+   640 ;;		_io_init
+   641 ;;		_tmr0_init
+   642 ;; This function is called by:
+   643 ;;		_main
+   644 ;; This function uses a non-reentrant model
+   645 ;;
+   646  00D8                     _sys_init:	
+   647                           
+   648                           ;iocr_ira.c: 141: uart_init();
+   649                           
+   650                           ; Regs used in _sys_init: [wreg+status,2+status,0+pclath+cstack]
+   651  00D8  20DD               	fcall	_uart_init
+   652                           
+   653                           ;iocr_ira.c: 144: io_init();
+   654  00D9  20C6               	fcall	_io_init
+   655                           
+   656                           ;iocr_ira.c: 147: tmr0_init();
+   657  00DA  20BE               	fcall	_tmr0_init
+   658                           
+   659                           ;iocr_ira.c: 150: GIE = 1;
+   660  00DB  178B               	bsf	11,7
+   661  00DC  0008               	return
+   662  00DD                     __end_of_sys_init:	
+   663                           
+   664                           	psect	text161
+   665  00BE                     __ptext161:	
+   666 ;; =============== function _sys_init ends ============
+   667                           
+   668                           
+   669 ;; *************** function _tmr0_init *****************
+   670 ;; Defined at:
+   671 ;;		line 172 in file "E:\Projects\PDN0907\test\lgt8p663a_ira\iocr_ira.c"
+   672 ;; Parameters:    Size  Location     Type
+   673 ;;		None
+   674 ;; Auto vars:     Size  Location     Type
+   675 ;;		None
+   676 ;; Return value:  Size  Location     Type
+   677 ;;		None               void
+   678 ;; Registers used:
+   679 ;;		wreg, status,2, status,0
+   680 ;; Tracked objects:
+   681 ;;		On entry : 20/20
+   682 ;;		On exit  : 20/20
+   683 ;;		Unchanged: FFFDF/0
+   684 ;; Data sizes:     COMMON   BANK0
+   685 ;;      Params:         0       0
+   686 ;;      Locals:         0       0
+   687 ;;      Temps:          0       0
+   688 ;;      Totals:         0       0
+   689 ;;Total ram usage:        0 bytes
+   690 ;; Hardware stack levels used:    1
+   691 ;; Hardware stack levels required when called:    1
+   692 ;; This function calls:
+   693 ;;		Nothing
+   694 ;; This function is called by:
+   695 ;;		_sys_init
+   696 ;; This function uses a non-reentrant model
+   697 ;;
+   698  00BE                     _tmr0_init:	
+   699                           
+   700                           ;iocr_ira.c: 177: OPTION_REG &= 0xC0;
+   701                           
+   702                           ; Regs used in _tmr0_init: [wreg+status,2+status,0]
+   703  00BE  30C0               	movlw	192
+   704  00BF  0581               	andwf	1,f	;volatile
+   705                           
+   706                           ;iocr_ira.c: 182: T0CON &= 0xfc;
+   707  00C0  30FC               	movlw	252
+   708  00C1  0591               	andwf	17,f	;volatile
+   709                           
+   710                           ;iocr_ira.c: 183: PR0L = 200;
+   711  00C2  30C8               	movlw	200
+   712  00C3  0092               	movwf	18	;volatile
+   713                           
+   714                           ;iocr_ira.c: 186: T0IE = 1;
+   715  00C4  168B               	bsf	11,5
+   716  00C5  0008               	return
+   717  00C6                     __end_of_tmr0_init:	
+   718                           
+   719                           	psect	text162
+   720  00C6                     __ptext162:	
+   721 ;; =============== function _tmr0_init ends ============
+   722                           
+   723                           
+   724 ;; *************** function _io_init *****************
+   725 ;; Defined at:
+   726 ;;		line 154 in file "E:\Projects\PDN0907\test\lgt8p663a_ira\iocr_ira.c"
+   727 ;; Parameters:    Size  Location     Type
+   728 ;;		None
+   729 ;; Auto vars:     Size  Location     Type
+   730 ;;		None
+   731 ;; Return value:  Size  Location     Type
+   732 ;;		None               void
+   733 ;; Registers used:
+   734 ;;		wreg, status,2
+   735 ;; Tracked objects:
+   736 ;;		On entry : 20/20
+   737 ;;		On exit  : 20/20
+   738 ;;		Unchanged: FFFDF/0
+   739 ;; Data sizes:     COMMON   BANK0
+   740 ;;      Params:         0       0
+   741 ;;      Locals:         0       0
+   742 ;;      Temps:          0       0
+   743 ;;      Totals:         0       0
+   744 ;;Total ram usage:        0 bytes
+   745 ;; Hardware stack levels used:    1
+   746 ;; Hardware stack levels required when called:    1
+   747 ;; This function calls:
+   748 ;;		Nothing
+   749 ;; This function is called by:
+   750 ;;		_sys_init
+   751 ;; This function uses a non-reentrant model
+   752 ;;
+   753  00C6                     _io_init:	
+   754                           
+   755                           ;iocr_ira.c: 156: ANSEL = 0;
+   756                           
+   757                           ; Regs used in _io_init: [wreg+status,2]
+   758  00C6  019F               	clrf	31	;volatile
+   759                           
+   760                           ;iocr_ira.c: 159: WPUA = 0b00000100;
+   761  00C7  3004               	movlw	4
+   762  00C8  0095               	movwf	21	;volatile
+   763                           
+   764                           ;iocr_ira.c: 162: nGPPU = 0;
+   765  00C9  1381               	bcf	1,7
+   766                           
+   767                           ;iocr_ira.c: 165: IOCA = 0b00000100;
+   768  00CA  0096               	movwf	22	;volatile
+   769                           
+   770                           ;iocr_ira.c: 168: GPIE = 1;
+   771  00CB  158B               	bsf	11,3
+   772  00CC  0008               	return
+   773  00CD                     __end_of_io_init:	
+   774                           
+   775                           	psect	text163
+   776  00DD                     __ptext163:	
+   777 ;; =============== function _io_init ends ============
+   778                           
+   779                           
+   780 ;; *************** function _uart_init *****************
+   781 ;; Defined at:
+   782 ;;		line 14 in file "E:\Projects\PDN0907\test\lgt8p663a_ira\uart.c"
+   783 ;; Parameters:    Size  Location     Type
+   784 ;;		None
+   785 ;; Auto vars:     Size  Location     Type
+   786 ;;		None
+   787 ;; Return value:  Size  Location     Type
+   788 ;;		None               void
+   789 ;; Registers used:
+   790 ;;		None
+   791 ;; Tracked objects:
+   792 ;;		On entry : 0/20
+   793 ;;		On exit  : 20/20
+   794 ;;		Unchanged: FFFDF/0
+   795 ;; Data sizes:     COMMON   BANK0
+   796 ;;      Params:         0       0
+   797 ;;      Locals:         0       0
+   798 ;;      Temps:          0       0
+   799 ;;      Totals:         0       0
+   800 ;;Total ram usage:        0 bytes
+   801 ;; Hardware stack levels used:    1
+   802 ;; Hardware stack levels required when called:    1
+   803 ;; This function calls:
+   804 ;;		Nothing
+   805 ;; This function is called by:
+   806 ;;		_sys_init
+   807 ;; This function uses a non-reentrant model
+   808 ;;
+   809  00DD                     _uart_init:	
+   810                           
+   811                           ;uart.c: 16: RA5 = 1;
+   812                           
+   813                           ; Regs used in _uart_init: []
+   814  00DD  1283               	bcf	3,5	;RP0=0, select bank0
+   815  00DE  1685               	bsf	5,5
+   816                           
+   817                           ;uart.c: 17: TRISA5 = 0;
+   818  00DF  1683               	bsf	3,5	;RP0=1, select bank1
+   819  00E0  1285               	bcf	5,5
+   820  00E1  0008               	return
+   821  00E2                     __end_of_uart_init:	
+   822                           
+   823                           	psect	text164
+   824  00A1                     __ptext164:	
+   825 ;; =============== function _uart_init ends ============
+   826                           
+   827                           
+   828 ;; *************** function _hisr *****************
+   829 ;; Defined at:
+   830 ;;		line 32 in file "E:\Projects\PDN0907\test\lgt8p663a_ira\iocr_ira.c"
+   831 ;; Parameters:    Size  Location     Type
+   832 ;;		None
+   833 ;; Auto vars:     Size  Location     Type
+   834 ;;		None
+   835 ;; Return value:  Size  Location     Type
+   836 ;;		None               void
+   837 ;; Registers used:
+   838 ;;		wreg, status,2, status,0
+   839 ;; Tracked objects:
+   840 ;;		On entry : 0/0
+   841 ;;		On exit  : 0/0
+   842 ;;		Unchanged: FFFDF/0
+   843 ;; Data sizes:     COMMON   BANK0
+   844 ;;      Params:         0       0
+   845 ;;      Locals:         0       0
+   846 ;;      Temps:          2       0
+   847 ;;      Totals:         2       0
+   848 ;;Total ram usage:        2 bytes
+   849 ;; Hardware stack levels used:    1
+   850 ;; This function calls:
+   851 ;;		Nothing
+   852 ;; This function is called by:
+   853 ;;		Interrupt level 1
+   854 ;; This function uses a non-reentrant model
+   855 ;;
+   856  00A1                     _hisr:	
+   857                           
+   858                           ;iocr_ira.c: 34: if(T0IE && T0IF)
+   859  00A1  1A8B               	btfsc	11,5
+   860  00A2  1D0B               	btfss	11,2
+   861  00A3  28AA               	goto	i1l2157
+   862                           
+   863                           ;iocr_ira.c: 35: {
+   864                           ;iocr_ira.c: 36: if(ird_cnt < 0xff)
+   865  00A4  0875               	movf	_ird_cnt,w	;volatile
+   866  00A5  3AFF               	xorlw	255
+   867  00A6  1903               	skipnz
+   868  00A7  28A9               	goto	i1l2155
+   869                           
+   870                           ;iocr_ira.c: 37: ird_cnt++;
+   871  00A8  0AF5               	incf	_ird_cnt,f	;volatile
+   872  00A9                     i1l2155:	
+   873                           
+   874                           ;iocr_ira.c: 38: T0IF = 0;
+   875  00A9  110B               	bcf	11,2
+   876  00AA                     i1l2157:	
+   877                           
+   878                           ;iocr_ira.c: 39: }
+   879                           ;iocr_ira.c: 42: if(GPIE && GPIF)
+   880  00AA  198B               	btfsc	11,3
+   881  00AB  1C0B               	btfss	11,0
+   882  00AC  28B7               	goto	i1l790
+   883                           
+   884                           ;iocr_ira.c: 43: {
+   885                           ;iocr_ira.c: 44: ird_prd = ird_cnt;
+   886  00AD  0875               	movf	_ird_cnt,w	;volatile
+   887  00AE  1283               	bcf	3,5	;RP0=0, select bank0
+   888  00AF  00C9               	movwf	_ird_prd	;volatile
+   889                           
+   890                           ;iocr_ira.c: 45: ird_cnt = 0;
+   891  00B0  01F5               	clrf	_ird_cnt	;volatile
+   892                           
+   893                           ;iocr_ira.c: 46: ird_flg = (0x80 | RA2);
+   894  00B1  3000               	movlw	0
+   895  00B2  1905               	btfsc	5,2
+   896  00B3  3001               	movlw	1
+   897  00B4  3880               	iorlw	128
+   898  00B5  00C8               	movwf	_ird_flg	;volatile
+   899                           
+   900                           ;iocr_ira.c: 47: GPIF = 0;
+   901  00B6  100B               	bcf	11,0
+   902  00B7                     i1l790:	
+   903  00B7  0871               	movf	??_hisr+1,w
+   904  00B8  008A               	movwf	10
+   905  00B9  0E70               	swapf	??_hisr^(0+-128),w
+   906  00BA  0083               	movwf	3
+   907  00BB  0EFE               	swapf	126,f
+   908  00BC  0E7E               	swapf	126,w
+   909  00BD  0009               	retfie
+   910  00BE                     __end_of_hisr:	
+   911                           
+   912                           	psect	intentry
+   913  0004                     __pintentry:	
+   914                           ; Regs used in _hisr: [wreg+status,2+status,0]
+   915                           
+   916  0004                     interrupt_function:	
+   917  007E                     saved_w	set	btemp
+   918  0004  00FE               	movwf	btemp
+   919  0005  0E03               	swapf	3,w
+   920  0006  00F0               	movwf	??_hisr
+   921  0007  080A               	movf	10,w
+   922  0008  00F1               	movwf	??_hisr+1
+   923  0009  28A1               	ljmp	_hisr
+   924                           
+   925                           	psect	text165
+   926  0000                     __ptext165:	
+   927 ;; =============== function _hisr ends ============
+   928                           
+   929  007E                     btemp	set	126	;btemp
+   930  007E                     wtemp0	set	126
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Sat Dec 16 20:10:34 2017
+
+                   pc 0002                    fsr 0004                   l822 0000                   l806 002E  
+                 l816 0000                   l819 0000                   _GIE 005F                   _RA2 002A  
+                 _RA5 002D                   u230 0086                   u244 0088                   u357 007D  
+                 u367 008C                   u377 0098                   u387 009D                   fsr0 0004  
+                 indf 0000           main@edg_flg 0046                  S2323 00CD                  l2203 0000  
+                l2211 0000                  l2205 0000                  l2221 0000                  l2213 0000  
+                l2207 0000                  l2223 0000                  l2215 0000                  l2209 0000  
+                l2233 0000                  l2225 0000                  l2217 0000                  l2171 0000  
+                l2235 0000                  l2227 0000                  l2219 0000                  l2173 0000  
+                l2181 0000                  l2261 0000                  l2253 0000                  l2245 0000  
+                l2237 0000                  l2229 0050                  l2167 0000                  l2175 0000  
+                l2183 0000                  l2191 0000                  l2263 002C                  l2255 0021  
+                l2247 0000                  l2239 0064                  l2177 0000                  l2169 0000  
+                l2185 0000                  l2193 0000                  l2281 0049                  l2273 003B  
+                l2265 002E                  l2249 0019                  l2179 0000                  l2187 0000  
+                l2195 0000                  l2189 0000                  l2197 0000                  l2277 0000  
+                l2269 0031                  l2279 0047                  l1593 0000                  l1596 0081  
+                l1598 0000           main@main_st 0047                  _T0IE 005D                  _T0IF 005A  
+         main@ira_bit 0045                  _IOCA 0096                  _GPIE 005B                  _GPIF 0058  
+         main@ira_buf 0040                  _CWOK 0476                  _PR0L 0092                  _WPUA 0095  
+                _main 000B                  _hisr 00A1                  btemp 007E                  start 000A  
+               ?_main 0070                 ?_hisr 0070                 _ANSEL 009F                 _T0CON 0091  
+               i1l790 00B7                 _nGPPU 040F       __end_of_io_init 00CD                 pclath 000A  
+               status 0003                 wtemp0 007E          __end_of_main 0078          __end_of_hisr 00BE  
+              ??_main 0075                ??_hisr 0070                i1l2163 0000                i1l2155 00A9  
+              i1l2147 0000                i1l2165 0000                i1l2157 00AA                _TRISA5 042D  
+           ??_io_init 0072                saved_w 007E      __end_of_sys_init 00DD        __pcstackCOMMON 0070  
+          __pbssBANK0 0048            __pmaintext 000B            __pintentry 0004    __size_of_tmr0_init 0008  
+  __size_of_uart_init 0005    __size_of_uart_putc 0029             ?_sys_init 0070               _io_init 00C6  
+             _ird_flg 0048               _ird_cnt 0075               _ird_prd 0049  end_of_initialization 00D6  
+   __end_of_tmr0_init 00C6     __end_of_uart_init 00E2     __end_of_uart_putc 00A1            ??_sys_init 0072  
+ start_initialization 00D3           __pbssCOMMON 0075         __pcstackBANK0 0040             __ptext160 00D8  
+           __ptext161 00BE             __ptext162 00C6             __ptext163 00DD             __ptext164 00A1  
+           __ptext165 0000             __ptext158 0000             __ptext159 0078             __pswtext1 00CD  
+            ?_io_init 0070     __size_of_sys_init 0005     interrupt_function 0004             _tmr0_init 00BE  
+           _uart_init 00DD             _uart_putc 0078            uart_putc@c 0073            uart_putc@i 0074  
+          ?_tmr0_init 0070            ?_uart_init 0070            ?_uart_putc 0070      __size_of_io_init 0007  
+       __size_of_main 006D         __size_of_hisr 001D              _sys_init 00D8              intlevel1 0000  
+         ??_tmr0_init 0072           ??_uart_init 0072           ??_uart_putc 0072            _OPTION_REG 0081  

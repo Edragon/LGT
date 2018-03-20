@@ -1,0 +1,8 @@
+_sys_init: CODE, 216 0 5
+_hisr: CODE, 161 0 29
+_main: CODE, 11 0 109
+_uart_init: CODE, 221 0 5
+_io_init: CODE, 198 0 7
+_uart_putc: CODE, 120 0 41
+_tmr0_init: CODE, 190 0 8
+Total: 204

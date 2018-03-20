@@ -1,0 +1,9 @@
+_sys_init: CODE, 155 0 5
+_hisr: CODE, 106 0 20
+_main: CODE, 52 0 29
+_spi_transfer: CODE, 81 0 25
+_io_init: CODE, 149 0 6
+_usi_init: CODE, 126 0 13
+_uart_putc: CODE, 11 0 41
+_tmr0_init: CODE, 139 0 10
+Total: 149
