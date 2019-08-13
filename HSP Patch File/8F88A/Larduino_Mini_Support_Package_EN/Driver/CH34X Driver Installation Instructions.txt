@@ -1,0 +1,26 @@
+**************   CH34X Driver Installation Instructions   *****************
+
+
+Supports for Windows(Windows XP or newer):
+Step 1:  Connect the CH34X device to your computer.
+Step 2:  Run “CH341SER_WINDOWS_X86_X64.EXE” directly,  then click the install(安装) and wait for finishing.
+Step 3:  Check the Device Manager of windows, if you can find a “USB Serial Port(COMX)” device under “COM And LPT” item, then enjoy yourself.
+        If you can’t find the “USB Serial Port(COMX)”device under “COM and LPT” item, please click uninstall(卸载), after that click install(安装) again.
+Step 4:  After install, please reboot your computer at first.
+Supports for MacOSX(OSX 10.5.6 or newer):
+Before install, please reduce the system safety level, allow all unknown sources application download.
+
+Step 1:  Connect the CH34X device to your computer.
+Step 2:  Run “ch34xInstall.pkg” directly, follow the prompts to complete the installation.
+Step 3:  Check the Device List, if you can find the “wch ch341 USB=>RS232” device, means all right.
+        if you can’t find “wch ch341 USB=>RS232” device, do as the follow steps.
+Step 4:  Open the terminal, and input command “ls/dev/tty*”, then check whether the enumeration device contains “tty.wch CH34X USB=>RS232” equipment.
+Step 5:  Open the “System Reporting Program”, View “Custom Devices Or Vendor Proprietary Equipment Current Requirment” under USB group, if this item is not configured, please retry the installation steps.
+Step 6:  After install, please reboot your computer at first.
+
+
+
+
+Author: Joinj
+E-mail: joinj@foxmail.com
+Sparking Work Space
