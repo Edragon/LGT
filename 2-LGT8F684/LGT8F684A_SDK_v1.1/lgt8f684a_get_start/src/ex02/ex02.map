@@ -1,0 +1,196 @@
+HI-TECH Software C Compiler 
+
+Linker command line:
+
+--edf=C:\Program Files (x86)\HI-TECH Software\PICC\9.83\dat\en_msgs.txt -cs \
+  -h+ex02.sym -z -Q16F684 -ol.obj -Mex02.map -E1 -ACONST=00h-0FFhx8 \
+  -ACODE=00h-07FFh -ASTRCODE=00h-07FFh -AENTRY=00h-0FFhx8 \
+  -ASTRING=00h-0FFhx8 -ABANK0=020h-06Fh -ABANK1=0A0h-0BFh \
+  -ARAM=020h-06Fh,0A0h-0BFh -AABS1=020h-07Fh,0A0h-0BFh -ACOMMON=070h-07Fh \
+  -ASFR0=00h-01Fh -ASFR1=080h-09Fh -preset_vec=00h,intentry,init,end_init \
+  -ppowerup=CODE -pfunctab=CODE -ACONFIG=02007h-02007h -pconfig=CONFIG \
+  -DCONFIG=2 -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 \
+  -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
+  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k startup.obj ex02.obj 
+
+Object code version is 3.10
+
+Machine type is 16F684
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+startup.obj     end_init                              0        0        1        0       0
+ex02.obj        eeprom_data                           0     2100        2     4200       2
+                config                             2007     2007        1     400E       0
+                cinit                               7EE      7EE        2      FDC       0
+                maintext                            7F0      7F0       10      FE0       0
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   CONST          
+
+        CLASS   CODE           
+                end_init                              0        0        1         0
+                cinit                               7EE      7EE        2         0
+                maintext                            7F0      7F0       10         0
+
+        CLASS   STRCODE        
+
+        CLASS   ENTRY          
+
+        CLASS   STRING         
+
+        CLASS   BANK0          
+
+        CLASS   BANK1          
+
+        CLASS   RAM            
+
+        CLASS   ABS1           
+                abs_s1                               7E       7E        2         1
+
+        CLASS   COMMON         
+
+        CLASS   SFR0           
+
+        CLASS   SFR1           
+
+        CLASS   CONFIG         
+                config                             2007     2007        1         0
+
+        CLASS   IDLOC          
+
+        CLASS   EEDATA         
+                eeprom_data                           0     2100        2         2
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
+
+                reset_vec                      000000  000001  000001         0       0  CODE        2
+                cinit                          0007EE  000002  0007F0       FDC       0  CODE        2
+                maintext                       0007F0  000010  000800       FE0       0  CODE        2
+                config                         002007  000001  002008      400E       0  CONFIG      2
+                eeprom_data                    002100  000002  002102      4200       2  EEDATA      2
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK0            0020-006F             50           1
+        BANK1            00A0-00BF             20           1
+        CODE             0001-07ED            7ED           2
+        COMMON           0070-007D              E           1
+        CONST            0001-07ED            100           2
+        EEDATA           2102-21FF             FE           2
+        ENTRY            0001-07ED            100           2
+        IDLOC            2000-2003              4           2
+        RAM              0020-006F             50           1
+                         00A0-00BF             20
+        SFR0             0000-001F             20           1
+        SFR1             0080-009F             20           1
+        STRCODE          0001-07ED            7ED           2
+        STRING           0001-07ED            100           2
+
+                                  Symbol Table
+
+??_main               cstackCOMMON 0000
+?_main                cstackCOMMON 0000
+_ANSEL                (abs)        0091
+_PORTA                (abs)        0005
+_PORTC                (abs)        0007
+_TRISA                (abs)        0085
+_TRISC                (abs)        0087
+__Babs1               abs1         4204
+__Bbank0              bank0        4204
+__Bbank1              bank1        4204
+__Bcinit              cinit        4204
+__Bclrtext            clrtext      4204
+__Bcode               code         4204
+__Bcommon             common       4204
+__BcstackCOMMON       cstackCOMMON 4204
+__Beeprom_data        eeprom_data  2100
+__Bmaintext           maintext     4204
+__Bpa_nodes           pa_nodes     4204
+__Bram                ram          4204
+__Bsfr0               sfr0         4204
+__Bsfr1               sfr1         4204
+__Bstrings            strings      4204
+__Btext               text         4204
+__Habs1               abs1         0004
+__Hbank0              bank0        0004
+__Hbank1              bank1        0004
+__Hcinit              cinit        0004
+__Hclrtext            clrtext      0004
+__Hcode               code         0004
+__Hcommon             common       0004
+__Hconfig             config       2008
+__HcstackCOMMON       cstackCOMMON 0004
+__Heeprom_data        eeprom_data  0002
+__Hend_init           end_init     0001
+__Hfunctab            functab      0000
+__Hidloc              idloc        0000
+__Hinit               init         0000
+__Hintentry           intentry     0000
+__Hmaintext           maintext     0004
+__Hpa_nodes           pa_nodes     0004
+__Hpowerup            powerup      0000
+__Hram                ram          0004
+__Hreset_vec          reset_vec    0000
+__Hsfr0               sfr0         0004
+__Hsfr1               sfr1         0004
+__Hstrings            strings      0004
+__Htext               text         0004
+__Labs1               abs1         0004
+__Lbank0              bank0        0004
+__Lbank1              bank1        0004
+__Lcinit              cinit        0004
+__Lclrtext            clrtext      0004
+__Lcode               code         0004
+__Lcommon             common       0004
+__Lconfig             config       2007
+__LcstackCOMMON       cstackCOMMON 0004
+__Leeprom_data        eeprom_data  0000
+__Lend_init           end_init     0000
+__Lfunctab            functab      0000
+__Lidloc              idloc        0000
+__Linit               init         0000
+__Lintentry           intentry     0000
+__Lmaintext           maintext     0004
+__Lpa_nodes           pa_nodes     0004
+__Lpowerup            powerup      0000
+__Lram                ram          0004
+__Lreset_vec          reset_vec    0000
+__Lsfr0               sfr0         0004
+__Lsfr1               sfr1         0004
+__Lstrings            strings      0004
+__Ltext               text         0004
+__S0                  (abs)        2008
+__S1                  (abs)        0000
+__S2                  (abs)        2102
+__end_of_main         maintext     0800
+__pcstackCOMMON       cstackCOMMON 0000
+__pmaintext           maintext     07F0
+__size_of_main        (abs)        0000
+_exit                 init         0000
+_main                 maintext     07F0
+btemp                 (abs)        007E
+end_of_initialization cinit        07EE
+intlevel0             functab      0000
+intlevel1             functab      0000
+intlevel2             functab      0000
+intlevel3             functab      0000
+intlevel4             functab      0000
+intlevel5             functab      0000
+l1857                                  
+l1859                                  
+l1861                                  
+l1863                                  
+l1865                                  
+l1867                                  
+l1869                                  
+l1871                                  
+reset_vec             reset_vec    0000
+start                 init         0000
+start_initialization  cinit        07EE
+wtemp0                (abs)        007E

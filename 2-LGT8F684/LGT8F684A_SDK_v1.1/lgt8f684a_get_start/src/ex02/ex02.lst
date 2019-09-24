@@ -1,0 +1,187 @@
+
+
+HI-TECH Software PIC PRO Macro Assembler V9.83 build 10920 
+                                                                                               Fri Nov 13 14:10:23 2015
+
+HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
+     1                           	processor	16F684
+     2                           	opt	pw 120
+     3                           	opt	pm
+     4                           	psect	eeprom_data,global,class=EEDATA,space=2,delta=2
+     5                           	psect	config,global,class=CONFIG,delta=2
+     6                           	psect	maintext,global,class=CODE,delta=2
+     7                           	psect	cinit,global,class=CODE,delta=2
+     8                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     9                           	psect	pa_nodes,global,class=CODE,delta=2
+    10                           	dabs	1,0x7E,2
+    11  000A                     	;#
+    12                           
+    13                           	psect	eeprom_data
+    14  0000  7D9F               	dw	32159	;#
+    15  0001  7C7F               	dw	31871	;#
+    16                           
+    17                           	psect	config
+    18  2007  0000               	dw	0	;#
+    19                           
+    20                           	psect	maintext
+    21  07F0                     __pmaintext:	
+    22  0005                     _PORTA	set	5
+    23  0007                     _PORTC	set	7
+    24  0091                     _ANSEL	set	145
+    25  0085                     _TRISA	set	133
+    26  0087                     _TRISC	set	135
+    27                           
+    28                           ; 2 bytes @ 0x0
+    29 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+    30 ;;Auto spaces:   Size  Autos    Used
+    31 ;; COMMON          14      0       0
+    32 ;; BANK0           80      0       0
+    33 ;; BANK1           32      0       0
+    34 ;;
+    35 ;; Pointer list with targets:
+    36 ;;
+    37 ;; Critical Paths under _main in COMMON
+    38 ;;
+    39 ;;   None.
+    40 ;;
+    41 ;; Critical Paths under _main in BANK0
+    42 ;;
+    43 ;;   None.
+    44 ;;
+    45 ;; Critical Paths under _main in BANK1
+    46 ;;
+    47 ;;   None.
+    48 ;;
+    49 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+    50 ;;
+    51 ;;
+    52 ;;Call Graph Tables:
+    53 ;;
+    54 ;; ---------------------------------------------------------------------------------
+    55 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+    56 ;; ---------------------------------------------------------------------------------
+    57 ;; (0) _main                                                 0     0      0       0
+    58 ;; ---------------------------------------------------------------------------------
+    59 ;; Estimated maximum stack depth 0
+    60 ;; ---------------------------------------------------------------------------------
+    61 ;; Call Graph Graphs:
+    62 ;; _main (ROOT)
+    63 ;;
+    64 ;; Address spaces:
+    65 ;;Name               Size   Autos  Total    Cost      Usage
+    66 ;;BITCOMMON            E      0       0       0        0.0%
+    67 ;;EEDATA             100      0       0       0        0.0%
+    68 ;;NULL                 0      0       0       0        0.0%
+    69 ;;CODE                 0      0       0       0        0.0%
+    70 ;;COMMON               E      0       0       1        0.0%
+    71 ;;BITSFR0              0      0       0       1        0.0%
+    72 ;;SFR0                 0      0       0       1        0.0%
+    73 ;;BITSFR1              0      0       0       2        0.0%
+    74 ;;SFR1                 0      0       0       2        0.0%
+    75 ;;STACK                0      0       0       2        0.0%
+    76 ;;BITBANK0            50      0       0       3        0.0%
+    77 ;;BANK0               50      0       0       4        0.0%
+    78 ;;BANK1               20      0       0       5        0.0%
+    79 ;;ABS                  0      0       0       6        0.0%
+    80 ;;BITBANK1            20      0       0       7        0.0%
+    81 ;;DATA                 0      0       0       8        0.0%
+    82 ;; *************** function _main *****************
+    83 ;; Defined at:
+    84 ;;		line 25 in file "E:\Projects\LGT8F684A\test\Tests\Cases\Start\lgt8f684a_get_start\src\ex02\ex02.c"
+    85 ;; Parameters:    Size  Location     Type
+    86 ;;		None
+    87 ;; Auto vars:     Size  Location     Type
+    88 ;;		None
+    89 ;; Return value:  Size  Location     Type
+    90 ;;                  2  928[COMMON] int 
+    91 ;; Registers used:
+    92 ;;		wreg, status,2
+    93 ;; Tracked objects:
+    94 ;;		On entry : 17F/0
+    95 ;;		On exit  : 0/0
+    96 ;;		Unchanged: 0/0
+    97 ;; Data sizes:     COMMON   BANK0   BANK1
+    98 ;;      Params:         0       0       0
+    99 ;;      Locals:         0       0       0
+   100 ;;      Temps:          0       0       0
+   101 ;;      Totals:         0       0       0
+   102 ;;Total ram usage:        0 bytes
+   103 ;; This function calls:
+   104 ;;		Nothing
+   105 ;; This function is called by:
+   106 ;;		Startup code after reset
+   107 ;; This function uses a non-reentrant model
+   108 ;;
+   109  07F0                     _main:	
+   110                           
+   111                           ;ex02.c: 28: TRISA = 0x03;
+   112                           
+   113                           ; Regs used in _main: [wreg+status,2]
+   114  07F0  3003               	movlw	3
+   115  07F1  1683               	bsf	3,5	;RP0=1, select bank1
+   116  07F2  0085               	movwf	5	;volatile
+   117                           
+   118                           ;ex02.c: 31: TRISC = 0x00;
+   119  07F3  0187               	clrf	7	;volatile
+   120                           
+   121                           ;ex02.c: 34: ANSEL = 0x00;
+   122  07F4  0191               	clrf	17	;volatile
+   123  07F5                     l929:	
+   124                           ;ex02.c: 36: while(1)
+   125                           
+   126                           
+   127                           ;ex02.c: 37: {
+   128                           ;ex02.c: 39: PORTA = 0x03;
+   129  07F5  3003               	movlw	3
+   130  07F6  1283               	bcf	3,5	;RP0=0, select bank0
+   131  07F7  0085               	movwf	5	;volatile
+   132                           
+   133                           ;ex02.c: 40: PORTC = 0x00;
+   134  07F8  0187               	clrf	7	;volatile
+   135                           
+   136                           ;ex02.c: 41: _nop();
+   137  07F9  0000               	nop
+   138                           
+   139                           ;ex02.c: 43: PORTA = 0xff;
+   140  07FA  30FF               	movlw	255
+   141  07FB  1283               	bcf	3,5	;RP0=0, select bank0
+   142  07FC  0085               	movwf	5	;volatile
+   143                           
+   144                           ;ex02.c: 44: PORTC = 0xff;
+   145  07FD  0087               	movwf	7	;volatile
+   146                           
+   147                           ;ex02.c: 45: _nop();
+   148  07FE  0000               	nop
+   149  07FF  2FF5               	goto	l929
+   150  0800                     __end_of_main:	
+   151                           
+   152 ;; =============== function _main ends ============
+   153  007E                     btemp	set	126	;btemp
+   154  007E                     wtemp0	set	126
+   155                           
+   156                           	psect	cinit
+   157  07EE                     start_initialization:	
+   158  07EE                     end_of_initialization:	
+   159                           ;End of C runtime variable initialization code
+   160                           
+   161  07EE  0183               	clrf	3
+   162  07EF  2FF0               	ljmp	_main	;jump to C main() function
+   163                           
+   164                           	psect	cstackCOMMON
+   165  0000                     __pcstackCOMMON:	
+   166  0000                     ??_main:	
+   167  0000                     ?_main:	
+   168                           ; 0 bytes @ 0x0
+   169                           
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Fri Nov 13 14:10:23 2015
+
+                 l929 07F5                  l1861 0000                  l1871 0000                  l1863 0000  
+                l1865 0000                  l1857 0000                  l1867 0000                  l1859 0000  
+                l1869 0000                  _main 07F0                  btemp 007E                  start 0000  
+               ?_main 0000                 _ANSEL 0091                 _PORTA 0005                 _PORTC 0007  
+               _TRISA 0085                 _TRISC 0087                 status 0003                 wtemp0 007E  
+        __end_of_main 0800                ??_main 0000        __pcstackCOMMON 0000            __pmaintext 07F0  
+end_of_initialization 07EE   start_initialization 07EE         __size_of_main 0010  
