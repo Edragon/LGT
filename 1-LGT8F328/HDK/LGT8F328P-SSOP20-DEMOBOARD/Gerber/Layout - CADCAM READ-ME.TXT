@@ -1,0 +1,81 @@
+LABCENTER PROTEUS TOOL INFORMATION FILE
+=======================================
+
+In case of difficulty, please e-mail support@labcenter.co.uk
+
+Tool set up for Proteus layout 'Layout.pdsprj'.
+CADCAM generated at 12:20:01 on 2018Äê7ÔÂ23ÈÕ.
+
+File List
+---------
+Top Copper              : Layout - CADCAM Top Copper.GBR
+Bottom Copper           : Layout - CADCAM Bottom Copper.GBR
+Top Silk Screen         : Layout - CADCAM Top Silk Screen.GBR
+Top Solder Resist       : Layout - CADCAM Top Solder Resist.GBR
+Bottom Solder Resist    : Layout - CADCAM Bottom Solder Resist.GBR
+Top SMT Paste           : Layout - CADCAM Top SMT Paste.GBR
+Mechanical 1            : Layout - CADCAM Mechanical 1.GBR
+Top Assembly            : Layout - CADCAM Top Assembly.GBR
+Drill                   : Layout - CADCAM Drill.DRL
+Netlist                 : Layout - CADCAM Netlist.IPC
+
+Photoplotter Setup
+------------------
+Format: RS274X, ASCII, 4.3, metric, absolute, eob=*, LZO
+Notes:  D=Diameter, S=Side, W=Width, H=Height, C=Chamfer, I=Index
+
+D10	CIRCLE  D=0.254mm                                                         DRAW 
+D11	CIRCLE  D=0.508mm                                                         DRAW 
+D12	CIRCLE  D=0.762mm                                                         FLASH
+D13	RECT    W=1.7018mm            H=0.4572mm                                  FLASH
+D14	SQUARE  S=2.032mm                                                         FLASH
+D15	RECT    W=1.016mm             H=1.27mm                                    FLASH
+D16	RECT    W=1.27mm              H=1.016mm                                   FLASH
+D17	RECT    W=2.3876mm            H=1.4732mm                                  FLASH
+D18	CIRCLE  D=1.27mm                                                          FLASH
+D19	RECT    W=1.397mm             H=0.9906mm                                  FLASH
+D70	CIRCLE  D=0.2032mm                                                        DRAW 
+D71	CIRCLE  D=0.1524mm                                                        DRAW 
+D20	CIRCLE  D=0.25mm                                                          DRAW 
+D21	CIRCLE  D=0.2mm                                                           DRAW 
+D22	CIRCLE  D=0.6mm                                                           DRAW 
+D23	CIRCLE  D=0.0635mm                                                        DRAW 
+D24	PPAD    W=1.7018mm            H=0.4572mm            I=0                   FLASH
+D25	PPAD    W=2.286mm             H=2.286mm             I=1                   FLASH
+D26	PPAD    W=1.27mm              H=1.524mm             I=2                   FLASH
+D27	PPAD    W=2.286mm             H=2.286mm             I=3                   FLASH
+D28	PPAD    W=1.524mm             H=1.27mm              I=4                   FLASH
+D29	PPAD    W=2.6416mm            H=1.7272mm            I=5                   FLASH
+D72	CIRCLE  D=1.524mm                                                         FLASH
+D73	PPAD    W=1.397mm             H=0.9906mm            I=6                   FLASH
+D30	CIRCLE  D=0.05mm                                                          DRAW 
+D31	CIRCLE  D=0.305mm                                                         DRAW 
+D32	CIRCLE  D=0.31699mm                                                       DRAW 
+D33	CIRCLE  D=0.16459mm                                                       DRAW 
+D34	CIRCLE  D=0.08534mm                                                       DRAW 
+D35	CIRCLE  D=0.39319mm                                                       DRAW 
+D36	CIRCLE  D=0.20508mm                                                       DRAW 
+D37	CIRCLE  D=0.11165mm                                                       DRAW 
+D38	CIRCLE  D=0.25908mm                                                       DRAW 
+D39	CIRCLE  D=0.127mm                                                         DRAW 
+
+NC Drill Setup
+--------------
+Format: Excellon, ASCII, 4.3, metric, absolute, eob=<CR><LF>, no zero suppression.
+Notes:  Tool sizes are diameters. Layer sets are in brackets - 0=TOP, 15=BOTTOM, 1-14=INNER.
+
+T01	0.381mm (0-15) Plated
+T02	1.016mm (0-15) Plated
+T03	0.762mm (0-15) Plated
+T04	3.2mm (0-15) Plated
+
+Layer Stackup
+-------------
+Top Solder Resist        : 0.01mm     Resist
+Top Copper               : 0.018mm    Copper
+Core                     : 1.55mm     FR4
+Bottom Copper            : 0.018mm    Copper
+Bottom Solder Resist     : 0.01mm     Resist
+
+
+[END OF FILE]

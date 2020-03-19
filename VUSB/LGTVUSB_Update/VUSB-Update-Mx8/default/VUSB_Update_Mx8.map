@@ -1,0 +1,633 @@
+Archive member included because of file (symbol)
+
+c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                              c:/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328.o (exit)
+c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                              VUSB_Update_Mx8.o (__do_copy_data)
+c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                              VUSB_Update_Mx8.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+usbTxBuf            0xb               usbdrv.o
+usbDeviceAddr       0x1               VUSB_Update_Mx8.o
+usbRxToken          0x1               usbdrv.o
+usbInputBufOffset   0x1               usbdrv.o
+usbMsgPtr           0x2               usbdrv.o
+usbRxLen            0x1               usbdrv.o
+usbNewDeviceAddr    0x1               usbdrv.o
+usbCurrentTok       0x1               VUSB_Update_Mx8.o
+usbConfiguration    0x1               usbdrv.o
+usbRxBuf            0x16              usbdrv.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD c:/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328.o
+Address of section .ex_entry set to 0xc00
+Address of section .ex_vector_1 set to 0xc02
+Address of section .ex_vector_2 set to 0xc04
+Address of section .ex_vector_3 set to 0xc06
+Address of section .ex_vector_4 set to 0xc08
+Address of section .ex_vector_5 set to 0xc0a
+Address of section .ex_vector_6 set to 0xc0c
+Address of section .ex_vector_7 set to 0xc0e
+Address of section .ex_vector_8 set to 0xc10
+Address of section .ex_vector_9 set to 0xc12
+Address of section .ex_vector_10 set to 0xc14
+Address of section .ex_vector_11 set to 0xc16
+Address of section .ex_vector_12 set to 0xc18
+Address of section .ex_vector_13 set to 0xc1a
+Address of section .ex_vector_14 set to 0xc1c
+Address of section .ex_vector_15 set to 0xc1e
+Address of section .ex_vector_16 set to 0xc20
+Address of section .ex_vector_17 set to 0xc22
+Address of section .ex_vector_18 set to 0xc24
+Address of section .ex_vector_19 set to 0xc26
+Address of section .ex_vector_20 set to 0xc28
+Address of section .ex_vector_21 set to 0xc2a
+Address of section .ex_vector_22 set to 0xc2c
+Address of section .ex_vector_23 set to 0xc2e
+Address of section .ex_vector_24 set to 0xc30
+Address of section .ex_vector_25 set to 0xc32
+Address of section .ex_vector_26 set to 0xc34
+Address of section .ex_vector_27 set to 0xc36
+Address of section .ex_vector_28 set to 0xc36
+Address of section .ex_vector_29 set to 0xc38
+LOAD VUSB_Update_Mx8.o
+LOAD usbdrv.o
+LOAD usbdrvasm.o
+LOAD oddebug.o
+LOAD DrvEEPROM.o
+LOAD IntrJTbl.o
+LOAD compiler.o
+LOAD start.o
+LOAD c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+LOAD c:/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
+LOAD c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0xae6
+ *(.vectors)
+ .vectors       0x00000000       0x68 c:/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ .vectors       0x00000068       0x10 start.o
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+ .progmem.data  0x00000078       0x4c usbdrv.o
+                0x000000a0                usbDescriptorDevice
+                0x00000078                usbDescriptorString0
+                0x000000b2                usbDescriptorConfiguration
+                0x0000007c                usbDescriptorStringVendor
+                0x0000008e                usbDescriptorStringDevice
+                0x000000c4                . = ALIGN (0x2)
+                0x000000c4                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x000000c4        0x0 linker stubs
+ *(.trampolines*)
+                0x000000c4                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x000000c4                __ctors_start = .
+ *(.ctors)
+                0x000000c4                __ctors_end = .
+                0x000000c4                __dtors_start = .
+ *(.dtors)
+                0x000000c4                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x000000c4        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328.o
+                0x000000c4                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x000000c4        0xc c:/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x000000d0       0x16 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x000000d0                __do_copy_data
+ .init4         0x000000e6       0x10 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x000000e6                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x000000f6        0x8 c:/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328.o
+ *(.init9)
+ *(.text)
+ .text          0x000000fe        0x4 c:/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328.o
+                0x000000fe                __bad_interrupt
+ .text          0x00000102      0x2e6 VUSB_Update_Mx8.o
+                0x00000102                app_entry
+                0x000002de                usbFunctionSetup
+                0x000001c8                main
+                0x00000290                usbFunctionRead
+                0x0000014e                usbFunctionWrite
+ .text          0x000003e8      0x22c usbdrv.o
+                0x000003f6                usbPoll
+                0x000003e8                usbInit
+ .text          0x00000614      0x2cc usbdrvasm.o
+                0x00000646                __vector_1
+                0x00000614                usbCrc16
+                0x0000063e                usbCrc16Append
+ .text          0x000008e0        0x0 oddebug.o
+ .text          0x000008e0       0xd2 DrvEEPROM.o
+                0x000008e0                DrvEEPROM_ProgFlashHWord
+                0x0000094e                DrvEEPROM_ReadFlashByte
+                0x00000930                DrvEEPROM_EraseFlashPage
+                0x00000966                DrvEEPROM_ReadFWord
+ .text          0x000009b2       0xae IntrJTbl.o
+                0x00000a30                __vector_22
+                0x00000a54                __vector_28
+                0x00000a3c                __vector_24
+                0x000009f4                __vector_12
+                0x000009d0                __vector_6
+                0x000009be                __vector_3
+                0x00000a36                __vector_23
+                0x00000a42                __vector_25
+                0x000009ee                __vector_11
+                0x000009fa                __vector_13
+                0x00000a12                __vector_17
+                0x00000a1e                __vector_19
+                0x000009d6                __vector_7
+                0x00000a4e                __vector_27
+                0x000009ca                __vector_5
+                0x000009c4                __vector_4
+                0x000009e2                __vector_9
+                0x000009b8                __vector_2
+                0x000009b2                i__vector_1
+                0x00000a2a                __vector_21
+                0x00000a06                __vector_15
+                0x00000a5a                __vector_29
+                0x000009dc                __vector_8
+                0x00000a48                __vector_26
+                0x00000a00                __vector_14
+                0x000009e8                __vector_10
+                0x00000a0c                __vector_16
+                0x00000a18                __vector_18
+                0x00000a24                __vector_20
+ .text          0x00000a60       0x82 compiler.o
+                0x00000a74                Compiler_SetMclk
+                0x00000a92                Compiler_SetClkDiv
+                0x00000ac2                Compiler_SetWDT
+                0x00000ad0                Compiler_LPMReadWord
+                0x00000a60                Compiler_SetClk
+                0x00000aa6                Compiler_SetWclk
+ .text          0x00000ae2        0x0 start.o
+ .text          0x00000ae2        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00000ae2        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000ae2        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000ae2                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00000ae2        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000ae2        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000ae2        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000ae2                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000ae2        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000ae2                exit
+                0x00000ae2                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000ae2        0x4 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000ae6                _etext = .
+
+.data           0x00800100        0x4 load address 0x00000ae6
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328.o
+ .data          0x00800100        0x2 VUSB_Update_Mx8.o
+                0x00800100                extfunc
+ .data          0x00800102        0x2 usbdrv.o
+                0x00800102                usbTxLen
+ .data          0x00800104        0x0 usbdrvasm.o
+ .data          0x00800104        0x0 oddebug.o
+ .data          0x00800104        0x0 DrvEEPROM.o
+ .data          0x00800104        0x0 IntrJTbl.o
+ .data          0x00800104        0x0 compiler.o
+ .data          0x00800104        0x0 start.o
+ .data          0x00800104        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800104        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800104        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800104                . = ALIGN (0x2)
+                0x00800104                _edata = .
+                0x00800104                PROVIDE (__data_end, .)
+
+.bss            0x00800104       0x36
+                0x00800104                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800104        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328.o
+ .bss           0x00800104        0xb VUSB_Update_Mx8.o
+ .bss           0x0080010f        0x1 usbdrv.o
+ .bss           0x00800110        0x0 usbdrvasm.o
+ .bss           0x00800110        0x0 oddebug.o
+ .bss           0x00800110        0x0 DrvEEPROM.o
+ .bss           0x00800110        0x0 IntrJTbl.o
+ .bss           0x00800110        0x0 compiler.o
+ .bss           0x00800110        0x0 start.o
+ .bss           0x00800110        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x00800110        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800110        0x0 c:/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800110        0x2 VUSB_Update_Mx8.o
+                0x00800110                usbDeviceAddr
+                0x00800111                usbCurrentTok
+ COMMON         0x00800112       0x28 usbdrv.o
+                0x00800112                usbTxBuf
+                0x0080011d                usbRxToken
+                0x0080011e                usbInputBufOffset
+                0x0080011f                usbMsgPtr
+                0x00800121                usbRxLen
+                0x00800122                usbNewDeviceAddr
+                0x00800123                usbConfiguration
+                0x00800124                usbRxBuf
+                0x0080013a                PROVIDE (__bss_end, .)
+                0x00000ae6                __data_load_start = LOADADDR (.data)
+                0x00000aea                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080013a        0x0
+                0x0080013a                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0080013a                PROVIDE (__noinit_end, .)
+                0x0080013a                _end = .
+                0x0080013a                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x1d0
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x28 VUSB_Update_Mx8.o
+ .debug_aranges
+                0x00000028       0x20 usbdrv.o
+ .debug_aranges
+                0x00000048       0x20 usbdrvasm.o
+ .debug_aranges
+                0x00000068       0x20 DrvEEPROM.o
+ .debug_aranges
+                0x00000088      0x108 IntrJTbl.o
+ .debug_aranges
+                0x00000190       0x20 compiler.o
+ .debug_aranges
+                0x000001b0       0x20 start.o
+
+.debug_pubnames
+                0x00000000      0x6e1
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0xa4 VUSB_Update_Mx8.o
+ .debug_pubnames
+                0x000000a4      0x16b usbdrv.o
+ .debug_pubnames
+                0x0000020f       0x80 DrvEEPROM.o
+ .debug_pubnames
+                0x0000028f      0x3be IntrJTbl.o
+ .debug_pubnames
+                0x0000064d       0x94 compiler.o
+
+.debug_info     0x00000000     0x13cf
+ *(.debug_info)
+ .debug_info    0x00000000      0x315 VUSB_Update_Mx8.o
+ .debug_info    0x00000315      0x76a usbdrv.o
+ .debug_info    0x00000a7f       0x8a usbdrvasm.o
+ .debug_info    0x00000b09       0x61 oddebug.o
+ .debug_info    0x00000b6a      0x1a3 DrvEEPROM.o
+ .debug_info    0x00000d0d      0x4cf IntrJTbl.o
+ .debug_info    0x000011dc      0x174 compiler.o
+ .debug_info    0x00001350       0x7f start.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x548
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x184 VUSB_Update_Mx8.o
+ .debug_abbrev  0x00000184      0x217 usbdrv.o
+ .debug_abbrev  0x0000039b       0x14 usbdrvasm.o
+ .debug_abbrev  0x000003af       0x33 oddebug.o
+ .debug_abbrev  0x000003e2       0xac DrvEEPROM.o
+ .debug_abbrev  0x0000048e       0x40 IntrJTbl.o
+ .debug_abbrev  0x000004ce       0x66 compiler.o
+ .debug_abbrev  0x00000534       0x14 start.o
+
+.debug_line     0x00000000     0x132e
+ *(.debug_line)
+ .debug_line    0x00000000      0x375 VUSB_Update_Mx8.o
+ .debug_line    0x00000375      0x343 usbdrv.o
+ .debug_line    0x000006b8      0x1d9 usbdrvasm.o
+ .debug_line    0x00000891       0x3e oddebug.o
+ .debug_line    0x000008cf      0x1f0 DrvEEPROM.o
+ .debug_line    0x00000abf      0x603 IntrJTbl.o
+ .debug_line    0x000010c2      0x22b compiler.o
+ .debug_line    0x000012ed       0x41 start.o
+
+.debug_frame    0x00000000      0x510
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x70 VUSB_Update_Mx8.o
+ .debug_frame   0x00000070       0x30 usbdrv.o
+ .debug_frame   0x000000a0       0x50 DrvEEPROM.o
+ .debug_frame   0x000000f0      0x3b0 IntrJTbl.o
+ .debug_frame   0x000004a0       0x70 compiler.o
+
+.debug_str      0x00000000      0x906
+ *(.debug_str)
+ .debug_str     0x00000000      0x1fc VUSB_Update_Mx8.o
+                                0x230 (size before relaxing)
+ .debug_str     0x000001fc      0x2b5 usbdrv.o
+                                0x3a8 (size before relaxing)
+ .debug_str     0x000004b1       0x1b oddebug.o
+                                 0xd5 (size before relaxing)
+ .debug_str     0x000004cc       0xb3 DrvEEPROM.o
+                                0x16d (size before relaxing)
+ .debug_str     0x0000057f      0x2d9 IntrJTbl.o
+                                0x32c (size before relaxing)
+ .debug_str     0x00000858       0xae compiler.o
+                                0x179 (size before relaxing)
+
+.debug_loc      0x00000000      0x653
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x1b3 VUSB_Update_Mx8.o
+ .debug_loc     0x000001b3      0x2ed usbdrv.o
+ .debug_loc     0x000004a0      0x1b3 DrvEEPROM.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(VUSB_Update_Mx8.elf elf32-avr)
+LOAD linker stubs
+
+.ex_entry       0x00000c00        0x0
+ .ex_entry      0x00000c00        0x0 VUSB_Update_Mx8.o
+
+.ex_vector_1    0x00000c02        0x0
+ .ex_vector_1   0x00000c02        0x0 IntrJTbl.o
+
+.ex_vector_2    0x00000c04        0x0
+ .ex_vector_2   0x00000c04        0x0 IntrJTbl.o
+
+.ex_vector_3    0x00000c06        0x0
+ .ex_vector_3   0x00000c06        0x0 IntrJTbl.o
+
+.ex_vector_4    0x00000c08        0x0
+ .ex_vector_4   0x00000c08        0x0 IntrJTbl.o
+
+.ex_vector_5    0x00000c0a        0x0
+ .ex_vector_5   0x00000c0a        0x0 IntrJTbl.o
+
+.ex_vector_6    0x00000c0c        0x0
+ .ex_vector_6   0x00000c0c        0x0 IntrJTbl.o
+
+.ex_vector_7    0x00000c0e        0x0
+ .ex_vector_7   0x00000c0e        0x0 IntrJTbl.o
+
+.ex_vector_8    0x00000c10        0x0
+ .ex_vector_8   0x00000c10        0x0 IntrJTbl.o
+
+.ex_vector_9    0x00000c12        0x0
+ .ex_vector_9   0x00000c12        0x0 IntrJTbl.o
+
+.ex_vector_10   0x00000c14        0x0
+ .ex_vector_10  0x00000c14        0x0 IntrJTbl.o
+
+.ex_vector_11   0x00000c16        0x0
+ .ex_vector_11  0x00000c16        0x0 IntrJTbl.o
+
+.ex_vector_12   0x00000c18        0x0
+ .ex_vector_12  0x00000c18        0x0 IntrJTbl.o
+
+.ex_vector_13   0x00000c1a        0x0
+ .ex_vector_13  0x00000c1a        0x0 IntrJTbl.o
+
+.ex_vector_14   0x00000c1c        0x0
+ .ex_vector_14  0x00000c1c        0x0 IntrJTbl.o
+
+.ex_vector_15   0x00000c1e        0x0
+ .ex_vector_15  0x00000c1e        0x0 IntrJTbl.o
+
+.ex_vector_16   0x00000c20        0x0
+ .ex_vector_16  0x00000c20        0x0 IntrJTbl.o
+
+.ex_vector_17   0x00000c22        0x0
+ .ex_vector_17  0x00000c22        0x0 IntrJTbl.o
+
+.ex_vector_18   0x00000c24        0x0
+ .ex_vector_18  0x00000c24        0x0 IntrJTbl.o
+
+.ex_vector_19   0x00000c26        0x0
+ .ex_vector_19  0x00000c26        0x0 IntrJTbl.o
+
+.ex_vector_20   0x00000c28        0x0
+ .ex_vector_20  0x00000c28        0x0 IntrJTbl.o
+
+.ex_vector_21   0x00000c2a        0x0
+ .ex_vector_21  0x00000c2a        0x0 IntrJTbl.o
+
+.ex_vector_22   0x00000c2c        0x0
+ .ex_vector_22  0x00000c2c        0x0 IntrJTbl.o
+
+.ex_vector_23   0x00000c2e        0x0
+ .ex_vector_23  0x00000c2e        0x0 IntrJTbl.o
+
+.ex_vector_24   0x00000c30        0x0
+ .ex_vector_24  0x00000c30        0x0 IntrJTbl.o
+
+.ex_vector_25   0x00000c32        0x0
+ .ex_vector_25  0x00000c32        0x0 IntrJTbl.o
+
+.ex_vector_26   0x00000c34        0x0
+ .ex_vector_26  0x00000c34        0x0 IntrJTbl.o
+
+.ex_vector_27   0x00000c36        0x0
+ .ex_vector_27  0x00000c36        0x0 IntrJTbl.o
+
+.ex_vector_28   0x00000c36        0x0
+ .ex_vector_28  0x00000c36        0x0 IntrJTbl.o
+
+.ex_vector_29   0x00000c38        0x0
+ .ex_vector_29  0x00000c38        0x0 IntrJTbl.o
+
+.debug_ranges   0x00000000      0x270
+ .debug_ranges  0x00000000       0x40 VUSB_Update_Mx8.o
+ .debug_ranges  0x00000040       0x50 usbdrv.o
+ .debug_ranges  0x00000090      0x1e0 IntrJTbl.o

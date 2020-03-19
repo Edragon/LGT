@@ -1,0 +1,52 @@
+//==============================================================
+// LogicGreen 2018/02/23
+//
+// Ardunio 3rd-party hardware package for LGT8F
+// 针对LGT8F的Arduino第三方硬件包
+
+//	Installation Guide
+//      安装指南
+// Update memo:
+// 更新备忘录
+// v3.6c
+//	- update arduino core based on arduino 1.8.5 
+//      - 更新基于arduino 1.8.5的arduino核心
+//==============================================================
+
+1. Features *特征
+	> Support arduino > 1.8.x  *支持arduino 1.8.x以上版本
+	> Support bootloader by optiboot   *支持 optiboot bootloader
+	> Bootloader baudrate: 57600bps    *引导程序波特率 57600bps
+	> Support board: Larduino & LGT8F88A MiniDev  *支持板子 
+	> Support board: Larduino w/ LGT8FX8D and LGT8FX8P  *支持板子
+
+2. Package contents  *封装内容
+	Larduino_HSP_v3.6c : package root directory  *封装根目录
+	|
+	+ hardware : 3rd party hardware support package *第三方硬件支持包
+	|    |
+	|    + LGT : package for support arduino   *封装支持 arduino 
+	|
+	+ libraries : 3rd party hardware library   *第三方硬件库
+
+3. Installation: *安装
+	> Unzip Larduino_HSP_v3.6x.rar  
+          *解压缩Larduino_HSP_v3.6x.rar
+
+	> Copy [sketches], [hardware] and [libraries] directories to arduino's sketchbook direcotry
+          *将[sketches],[hardware],[libraries]三个文件夹拷贝到arduinod的sketchbook目录
+
+	> Restart Arduino, you will see new board from [Tools]->[Border] menu.
+          *重新驱动Arduino，你将在工具-板 菜单下看见新的可选板
+
+4. about arduino's sketchbook directory:*关于Arduino的sketchbook目录
+
+	You can always find this directory from [File]->[Preferences] menu.
+	*您始终可以从[文件] - > [首选项]菜单中找到此目录。
+
+	Here is the default sketchbook directory for most popluar system:
+	*以下是大多数流行系统的默认sketchbook目录：
+
+	> Windows: C:\Users\<Username>\Documents\Arduino
+	> Mac OSX: /Users/user/Documents/Arduino
+	> LINUX: /home/<Username>/sketchbook

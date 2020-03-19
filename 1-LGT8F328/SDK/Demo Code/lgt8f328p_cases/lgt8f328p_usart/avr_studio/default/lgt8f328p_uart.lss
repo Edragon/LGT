@@ -1,0 +1,171 @@
+
+lgt8f328p_uart.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000f4  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_aranges 00000060  00000000  00000000  00000148  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_pubnames 00000070  00000000  00000000  000001a8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   0000018e  00000000  00000000  00000218  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 000000f2  00000000  00000000  000003a6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   0000019e  00000000  00000000  00000498  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000070  00000000  00000000  00000638  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    000000e3  00000000  00000000  000006a8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_loc    00000031  00000000  00000000  0000078b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   8:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  10:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  14:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  18:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  1c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  20:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  24:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  28:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  2c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  34:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  38:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  3c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  40:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  44:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  48:	0c 94 40 00 	jmp	0x80	; 0x80 <__vector_18>
+  4c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  50:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  54:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  58:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  5c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  60:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  64:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+  74:	0e 94 56 00 	call	0xac	; 0xac <main>
+  78:	0c 94 78 00 	jmp	0xf0	; 0xf0 <_exit>
+
+0000007c <__bad_interrupt>:
+  7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000080 <__vector_18>:
+#include "../inc/allinone.h"
+
+// send the received character
+
+LGT_VECTOR(IVN_RXC)
+{
+  80:	1f 92       	push	r1
+  82:	0f 92       	push	r0
+  84:	0f b6       	in	r0, 0x3f	; 63
+  86:	0f 92       	push	r0
+  88:	11 24       	eor	r1, r1
+  8a:	8f 93       	push	r24
+  8c:	9f 93       	push	r25
+	unsigned char u8Char;
+
+	u8Char = UDR0;
+  8e:	90 91 c6 00 	lds	r25, 0x00C6
+
+	while(!(UCSR0A & (1 << UDRE0)));
+  92:	80 91 c0 00 	lds	r24, 0x00C0
+  96:	85 ff       	sbrs	r24, 5
+  98:	fc cf       	rjmp	.-8      	; 0x92 <__vector_18+0x12>
+
+	UDR0 = u8Char;
+  9a:	90 93 c6 00 	sts	0x00C6, r25
+}
+  9e:	9f 91       	pop	r25
+  a0:	8f 91       	pop	r24
+  a2:	0f 90       	pop	r0
+  a4:	0f be       	out	0x3f, r0	; 63
+  a6:	0f 90       	pop	r0
+  a8:	1f 90       	pop	r1
+  aa:	18 95       	reti
+
+000000ac <main>:
+#include "../inc/allinone.h"
+
+
+int main(void)
+{
+	OSCCAL = 0xbc;
+  ac:	8c eb       	ldi	r24, 0xBC	; 188
+  ae:	80 93 66 00 	sts	0x0066, r24
+
+	CLKPR = 0x81;
+  b2:	81 e8       	ldi	r24, 0x81	; 129
+  b4:	80 93 61 00 	sts	0x0061, r24
+	CLKPR = 0x81;
+  b8:	80 93 61 00 	sts	0x0061, r24
+
+	uart_init();
+  bc:	0e 94 65 00 	call	0xca	; 0xca <uart_init>
+
+	SEI();
+  c0:	78 94       	sei
+
+	uart_send_char(0x73);
+  c2:	83 e7       	ldi	r24, 0x73	; 115
+  c4:	0e 94 70 00 	call	0xe0	; 0xe0 <uart_send_char>
+  c8:	ff cf       	rjmp	.-2      	; 0xc8 <main+0x1c>
+
+000000ca <uart_init>:
+#include "../inc/allinone.h"
+
+void uart_init(void)
+{
+	// set UBRR = 51 as BAUDRATE = 19200
+	UBRR0L = 51;
+  ca:	83 e3       	ldi	r24, 0x33	; 51
+  cc:	80 93 c4 00 	sts	0x00C4, r24
+	UBRR0H = 0;
+  d0:	10 92 c5 00 	sts	0x00C5, r1
+
+	// enable tx, rx and rxci
+	UCSR0B |= (1 << TXEN0) | (1 <<RXEN0) | (1 << RXCIE0);
+  d4:	e1 ec       	ldi	r30, 0xC1	; 193
+  d6:	f0 e0       	ldi	r31, 0x00	; 0
+  d8:	80 81       	ld	r24, Z
+  da:	88 69       	ori	r24, 0x98	; 152
+  dc:	80 83       	st	Z, r24
+
+}
+  de:	08 95       	ret
+
+000000e0 <uart_send_char>:
+
+void uart_send_char(unsigned char u8Char)
+{
+  e0:	98 2f       	mov	r25, r24
+	while(!(UCSR0A & (1 << UDRE0)));
+  e2:	80 91 c0 00 	lds	r24, 0x00C0
+  e6:	85 ff       	sbrs	r24, 5
+  e8:	fc cf       	rjmp	.-8      	; 0xe2 <uart_send_char+0x2>
+	UDR0 = u8Char;
+  ea:	90 93 c6 00 	sts	0x00C6, r25
+}
+  ee:	08 95       	ret
+
+000000f0 <_exit>:
+  f0:	f8 94       	cli
+
+000000f2 <__stop_program>:
+  f2:	ff cf       	rjmp	.-2      	; 0xf2 <__stop_program>
