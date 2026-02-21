@@ -1,0 +1,616 @@
+
+lgt8f328p_pci.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000028e  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_aranges 00000060  00000000  00000000  000002e2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_pubnames 0000009e  00000000  00000000  00000342  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   000001ec  00000000  00000000  000003e0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 000000e3  00000000  00000000  000005cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   000004a0  00000000  00000000  000006af  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  000000a0  00000000  00000000  00000b50  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    000000fc  00000000  00000000  00000bf0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   8:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   c:	0c 94 40 00 	jmp	0x80	; 0x80 <__vector_3>
+  10:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  14:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  18:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  1c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  20:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  24:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  28:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  2c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  34:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  38:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  3c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  40:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  44:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  48:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  4c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  50:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  54:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  58:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  5c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  60:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  64:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+  74:	0e 94 4b 00 	call	0x96	; 0x96 <main>
+  78:	0c 94 45 01 	jmp	0x28a	; 0x28a <_exit>
+
+0000007c <__bad_interrupt>:
+  7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000080 <__vector_3>:
+#include "../inc/allinone.h"
+
+// PCINT0 interrupt
+
+LGT_VECTOR(IVN_PCINT0)
+{
+  80:	1f 92       	push	r1
+  82:	0f 92       	push	r0
+  84:	0f b6       	in	r0, 0x3f	; 63
+  86:	0f 92       	push	r0
+  88:	11 24       	eor	r1, r1
+	NOP();
+  8a:	00 00       	nop
+}
+  8c:	0f 90       	pop	r0
+  8e:	0f be       	out	0x3f, r0	; 63
+  90:	0f 90       	pop	r0
+  92:	1f 90       	pop	r1
+  94:	18 95       	reti
+
+00000096 <main>:
+
+#include "../inc/allinone.h"
+
+int main(void)
+{
+	OSCCAL = 0xb0;
+  96:	80 eb       	ldi	r24, 0xB0	; 176
+  98:	80 93 66 00 	sts	0x0066, r24
+
+	while(1) {
+		pci_pb_test();
+  9c:	0e 94 59 00 	call	0xb2	; 0xb2 <pci_pb_test>
+		pci_pc_test();
+  a0:	0e 94 83 00 	call	0x106	; 0x106 <pci_pc_test>
+		pci_pd_test();
+  a4:	0e 94 b7 00 	call	0x16e	; 0x16e <pci_pd_test>
+		pci_pe_test();
+  a8:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <pci_pe_test>
+		pci_pf_test();
+  ac:	0e 94 1b 01 	call	0x236	; 0x236 <pci_pf_test>
+  b0:	f5 cf       	rjmp	.-22     	; 0x9c <main+0x6>
+
+000000b2 <pci_pb_test>:
+
+void pci_pb_test (void)
+{
+	unsigned char i;
+	// enable pb output to generate pulse
+	PORTB = 0x0;
+  b2:	15 b8       	out	0x05, r1	; 5
+	DDRB = 0xff;
+  b4:	8f ef       	ldi	r24, 0xFF	; 255
+  b6:	84 b9       	out	0x04, r24	; 4
+  b8:	40 e0       	ldi	r20, 0x00	; 0
+  ba:	50 e0       	ldi	r21, 0x00	; 0
+	
+	for(i=0x0; i<0x8; i++) {
+		// enable pcint for pb[i]
+		PCMSK0 = 1 << i;
+  bc:	61 e0       	ldi	r22, 0x01	; 1
+  be:	70 e0       	ldi	r23, 0x00	; 0
+		// output high level of pb[i] to generate rising edge
+		PORTB = 1 << i;
+		// wait for PCIF0
+		while(!(PCIFR & (1 << PCIF0)));
+		// clear PCIF0
+		PCIFR = (1 << PCIF0);
+  c0:	e1 e0       	ldi	r30, 0x01	; 1
+	PORTB = 0x0;
+	DDRB = 0xff;
+	
+	for(i=0x0; i<0x8; i++) {
+		// enable pcint for pb[i]
+		PCMSK0 = 1 << i;
+  c2:	9b 01       	movw	r18, r22
+  c4:	04 2e       	mov	r0, r20
+  c6:	02 c0       	rjmp	.+4      	; 0xcc <pci_pb_test+0x1a>
+  c8:	22 0f       	add	r18, r18
+  ca:	33 1f       	adc	r19, r19
+  cc:	0a 94       	dec	r0
+  ce:	e2 f7       	brpl	.-8      	; 0xc8 <pci_pb_test+0x16>
+  d0:	20 93 6b 00 	sts	0x006B, r18
+		NOP();
+  d4:	00 00       	nop
+		NOP();
+  d6:	00 00       	nop
+		// output high level of pb[i] to generate rising edge
+		PORTB = 1 << i;
+  d8:	25 b9       	out	0x05, r18	; 5
+		// wait for PCIF0
+		while(!(PCIFR & (1 << PCIF0)));
+  da:	d8 9b       	sbis	0x1b, 0	; 27
+  dc:	fe cf       	rjmp	.-4      	; 0xda <pci_pb_test+0x28>
+		// clear PCIF0
+		PCIFR = (1 << PCIF0);
+  de:	eb bb       	out	0x1b, r30	; 27
+		NOP();
+  e0:	00 00       	nop
+		NOP();
+  e2:	00 00       	nop
+		// output low level of pb[i] to generate falling edge
+		PORTB &= ~(1 << i);
+  e4:	95 b1       	in	r25, 0x05	; 5
+  e6:	82 2f       	mov	r24, r18
+  e8:	80 95       	com	r24
+  ea:	89 23       	and	r24, r25
+  ec:	85 b9       	out	0x05, r24	; 5
+		// wait for PCIF0
+		while(!(PCIFR & (1 << PCIF0)));
+  ee:	d8 9b       	sbis	0x1b, 0	; 27
+  f0:	fe cf       	rjmp	.-4      	; 0xee <pci_pb_test+0x3c>
+		// clear PCIF0
+		PCIFR = (1 << PCIF0);
+  f2:	eb bb       	out	0x1b, r30	; 27
+  f4:	4f 5f       	subi	r20, 0xFF	; 255
+  f6:	5f 4f       	sbci	r21, 0xFF	; 255
+	unsigned char i;
+	// enable pb output to generate pulse
+	PORTB = 0x0;
+	DDRB = 0xff;
+	
+	for(i=0x0; i<0x8; i++) {
+  f8:	48 30       	cpi	r20, 0x08	; 8
+  fa:	51 05       	cpc	r21, r1
+  fc:	11 f7       	brne	.-60     	; 0xc2 <pci_pb_test+0x10>
+		// wait for PCIF0
+		while(!(PCIFR & (1 << PCIF0)));
+		// clear PCIF0
+		PCIFR = (1 << PCIF0);
+	}
+	PCMSK0 = 0x0;
+  fe:	10 92 6b 00 	sts	0x006B, r1
+	DDRB = 0x0;
+ 102:	14 b8       	out	0x04, r1	; 4
+}
+ 104:	08 95       	ret
+
+00000106 <pci_pc_test>:
+
+void pci_pc_test (void)
+{
+	unsigned char i;
+	// enable reset pin (PC6) for gpio function
+	IOCR |= 0x80;
+ 106:	80 91 f0 00 	lds	r24, 0x00F0
+ 10a:	80 68       	ori	r24, 0x80	; 128
+ 10c:	80 93 f0 00 	sts	0x00F0, r24
+	IOCR |= (1 << RSTIOEN);
+ 110:	80 91 f0 00 	lds	r24, 0x00F0
+ 114:	81 60       	ori	r24, 0x01	; 1
+ 116:	80 93 f0 00 	sts	0x00F0, r24
+	// enable pc output to generate pulse
+	PORTC = 0x0;
+ 11a:	18 b8       	out	0x08, r1	; 8
+	DDRC = 0xff;
+ 11c:	8f ef       	ldi	r24, 0xFF	; 255
+ 11e:	87 b9       	out	0x07, r24	; 7
+ 120:	40 e0       	ldi	r20, 0x00	; 0
+ 122:	50 e0       	ldi	r21, 0x00	; 0
+	
+	for(i=0x0; i<0x8; i++) {
+		// enable pcint for pc[i]
+		PCMSK1 = 1 << i;
+ 124:	61 e0       	ldi	r22, 0x01	; 1
+ 126:	70 e0       	ldi	r23, 0x00	; 0
+		// output high level of pc[i] to generate rising edge
+		PORTC = 1 << i;
+		// wait for PCIF1
+		while(!(PCIFR & (1 << PCIF1)));
+		// clear PCIF1
+		PCIFR = (1 << PCIF1);
+ 128:	e2 e0       	ldi	r30, 0x02	; 2
+	PORTC = 0x0;
+	DDRC = 0xff;
+	
+	for(i=0x0; i<0x8; i++) {
+		// enable pcint for pc[i]
+		PCMSK1 = 1 << i;
+ 12a:	9b 01       	movw	r18, r22
+ 12c:	04 2e       	mov	r0, r20
+ 12e:	02 c0       	rjmp	.+4      	; 0x134 <pci_pc_test+0x2e>
+ 130:	22 0f       	add	r18, r18
+ 132:	33 1f       	adc	r19, r19
+ 134:	0a 94       	dec	r0
+ 136:	e2 f7       	brpl	.-8      	; 0x130 <pci_pc_test+0x2a>
+ 138:	20 93 6c 00 	sts	0x006C, r18
+		NOP();
+ 13c:	00 00       	nop
+		NOP();
+ 13e:	00 00       	nop
+		// output high level of pc[i] to generate rising edge
+		PORTC = 1 << i;
+ 140:	28 b9       	out	0x08, r18	; 8
+		// wait for PCIF1
+		while(!(PCIFR & (1 << PCIF1)));
+ 142:	d9 9b       	sbis	0x1b, 1	; 27
+ 144:	fe cf       	rjmp	.-4      	; 0x142 <pci_pc_test+0x3c>
+		// clear PCIF1
+		PCIFR = (1 << PCIF1);
+ 146:	eb bb       	out	0x1b, r30	; 27
+		NOP();
+ 148:	00 00       	nop
+		NOP();
+ 14a:	00 00       	nop
+		// output low level of pc[i] to generate falling edge
+		PORTC &= ~(1 << i);
+ 14c:	98 b1       	in	r25, 0x08	; 8
+ 14e:	82 2f       	mov	r24, r18
+ 150:	80 95       	com	r24
+ 152:	89 23       	and	r24, r25
+ 154:	88 b9       	out	0x08, r24	; 8
+		// wait for PCIF1
+		while(!(PCIFR & (1 << PCIF1)));
+ 156:	d9 9b       	sbis	0x1b, 1	; 27
+ 158:	fe cf       	rjmp	.-4      	; 0x156 <pci_pc_test+0x50>
+		// clear PCIF1
+		PCIFR = (1 << PCIF1);
+ 15a:	eb bb       	out	0x1b, r30	; 27
+ 15c:	4f 5f       	subi	r20, 0xFF	; 255
+ 15e:	5f 4f       	sbci	r21, 0xFF	; 255
+	IOCR |= (1 << RSTIOEN);
+	// enable pc output to generate pulse
+	PORTC = 0x0;
+	DDRC = 0xff;
+	
+	for(i=0x0; i<0x8; i++) {
+ 160:	48 30       	cpi	r20, 0x08	; 8
+ 162:	51 05       	cpc	r21, r1
+ 164:	11 f7       	brne	.-60     	; 0x12a <pci_pc_test+0x24>
+		// wait for PCIF1
+		while(!(PCIFR & (1 << PCIF1)));
+		// clear PCIF1
+		PCIFR = (1 << PCIF1);
+	}
+	PCMSK1 = 0x0;
+ 166:	10 92 6c 00 	sts	0x006C, r1
+	DDRC = 0x0;
+ 16a:	17 b8       	out	0x07, r1	; 7
+}
+ 16c:	08 95       	ret
+
+0000016e <pci_pd_test>:
+
+void pci_pd_test (void)
+{
+	unsigned char i;
+	// enable pd output to generate pulse
+	PORTD = 0x0;
+ 16e:	1b b8       	out	0x0b, r1	; 11
+	DDRD = 0xff;
+ 170:	8f ef       	ldi	r24, 0xFF	; 255
+ 172:	8a b9       	out	0x0a, r24	; 10
+ 174:	40 e0       	ldi	r20, 0x00	; 0
+ 176:	50 e0       	ldi	r21, 0x00	; 0
+	
+	for(i=0x0; i<0x8; i++) {
+		// enable pcint for pd[i]
+		PCMSK2 = 1 << i;
+ 178:	61 e0       	ldi	r22, 0x01	; 1
+ 17a:	70 e0       	ldi	r23, 0x00	; 0
+		// output high level of pd[i] to generate rising edge
+		PORTD = 1 << i;
+		// wait for PCIF2
+		while(!(PCIFR & (1 << PCIF2)));
+		// clear PCIF2
+		PCIFR = (1 << PCIF2);
+ 17c:	e4 e0       	ldi	r30, 0x04	; 4
+	PORTD = 0x0;
+	DDRD = 0xff;
+	
+	for(i=0x0; i<0x8; i++) {
+		// enable pcint for pd[i]
+		PCMSK2 = 1 << i;
+ 17e:	9b 01       	movw	r18, r22
+ 180:	04 2e       	mov	r0, r20
+ 182:	02 c0       	rjmp	.+4      	; 0x188 <pci_pd_test+0x1a>
+ 184:	22 0f       	add	r18, r18
+ 186:	33 1f       	adc	r19, r19
+ 188:	0a 94       	dec	r0
+ 18a:	e2 f7       	brpl	.-8      	; 0x184 <pci_pd_test+0x16>
+ 18c:	20 93 6d 00 	sts	0x006D, r18
+		NOP();
+ 190:	00 00       	nop
+		NOP();
+ 192:	00 00       	nop
+		// output high level of pd[i] to generate rising edge
+		PORTD = 1 << i;
+ 194:	2b b9       	out	0x0b, r18	; 11
+		// wait for PCIF2
+		while(!(PCIFR & (1 << PCIF2)));
+ 196:	da 9b       	sbis	0x1b, 2	; 27
+ 198:	fe cf       	rjmp	.-4      	; 0x196 <pci_pd_test+0x28>
+		// clear PCIF2
+		PCIFR = (1 << PCIF2);
+ 19a:	eb bb       	out	0x1b, r30	; 27
+		NOP();
+ 19c:	00 00       	nop
+		NOP();
+ 19e:	00 00       	nop
+		// output low level of pd[i] to generate falling edge
+		PORTD &= ~(1 << i);
+ 1a0:	9b b1       	in	r25, 0x0b	; 11
+ 1a2:	82 2f       	mov	r24, r18
+ 1a4:	80 95       	com	r24
+ 1a6:	89 23       	and	r24, r25
+ 1a8:	8b b9       	out	0x0b, r24	; 11
+		// wait for PCIF2
+		while(!(PCIFR & (1 << PCIF2)));
+ 1aa:	da 9b       	sbis	0x1b, 2	; 27
+ 1ac:	fe cf       	rjmp	.-4      	; 0x1aa <pci_pd_test+0x3c>
+		// clear PCIF2
+		PCIFR = (1 << PCIF2);
+ 1ae:	eb bb       	out	0x1b, r30	; 27
+ 1b0:	4f 5f       	subi	r20, 0xFF	; 255
+ 1b2:	5f 4f       	sbci	r21, 0xFF	; 255
+	unsigned char i;
+	// enable pd output to generate pulse
+	PORTD = 0x0;
+	DDRD = 0xff;
+	
+	for(i=0x0; i<0x8; i++) {
+ 1b4:	48 30       	cpi	r20, 0x08	; 8
+ 1b6:	51 05       	cpc	r21, r1
+ 1b8:	11 f7       	brne	.-60     	; 0x17e <pci_pd_test+0x10>
+		// wait for PCIF2
+		while(!(PCIFR & (1 << PCIF2)));
+		// clear PCIF2
+		PCIFR = (1 << PCIF2);
+	}
+	PCMSK2 = 0x0;
+ 1ba:	10 92 6d 00 	sts	0x006D, r1
+	DDRD = 0x0;
+ 1be:	1a b8       	out	0x0a, r1	; 10
+}
+ 1c0:	08 95       	ret
+
+000001c2 <pci_pe_test>:
+
+void pci_pe_test (void)
+{
+	unsigned char i;
+	// enable AVREF pin (PE6) for gpio function
+	IOCR |= 0x80;
+ 1c2:	80 91 f0 00 	lds	r24, 0x00F0
+ 1c6:	80 68       	ori	r24, 0x80	; 128
+ 1c8:	80 93 f0 00 	sts	0x00F0, r24
+	IOCR |= (1 << REFIOEN);
+ 1cc:	80 91 f0 00 	lds	r24, 0x00F0
+ 1d0:	82 60       	ori	r24, 0x02	; 2
+ 1d2:	80 93 f0 00 	sts	0x00F0, r24
+	// enable SWC (PE0) & SWD (PE2) for gpio function
+	MCUSR |= (1 << SWDD);
+ 1d6:	84 b7       	in	r24, 0x34	; 52
+ 1d8:	80 68       	ori	r24, 0x80	; 128
+ 1da:	84 bf       	out	0x34, r24	; 52
+	MCUSR |= (1 << SWDD);
+ 1dc:	84 b7       	in	r24, 0x34	; 52
+ 1de:	80 68       	ori	r24, 0x80	; 128
+ 1e0:	84 bf       	out	0x34, r24	; 52
+	// enable pe output to generate pulse
+	PORTE = 0x0;
+ 1e2:	1e b8       	out	0x0e, r1	; 14
+	DDRE = 0xff;
+ 1e4:	8f ef       	ldi	r24, 0xFF	; 255
+ 1e6:	8d b9       	out	0x0d, r24	; 13
+ 1e8:	40 e0       	ldi	r20, 0x00	; 0
+ 1ea:	50 e0       	ldi	r21, 0x00	; 0
+	
+	for(i=0x0; i<0x8; i++) {
+		// enable pcint for pe[i]
+		PCMSK3 = 1 << i;
+ 1ec:	61 e0       	ldi	r22, 0x01	; 1
+ 1ee:	70 e0       	ldi	r23, 0x00	; 0
+		// output high level of pe[i] to generate rising edge
+		PORTE = 1 << i;
+		// wait for PCIF3
+		while(!(PCIFR & (1 << PCIF3)));
+		// clear PCIF3
+		PCIFR = (1 << PCIF3);
+ 1f0:	e8 e0       	ldi	r30, 0x08	; 8
+	PORTE = 0x0;
+	DDRE = 0xff;
+	
+	for(i=0x0; i<0x8; i++) {
+		// enable pcint for pe[i]
+		PCMSK3 = 1 << i;
+ 1f2:	9b 01       	movw	r18, r22
+ 1f4:	04 2e       	mov	r0, r20
+ 1f6:	02 c0       	rjmp	.+4      	; 0x1fc <pci_pe_test+0x3a>
+ 1f8:	22 0f       	add	r18, r18
+ 1fa:	33 1f       	adc	r19, r19
+ 1fc:	0a 94       	dec	r0
+ 1fe:	e2 f7       	brpl	.-8      	; 0x1f8 <pci_pe_test+0x36>
+ 200:	20 93 73 00 	sts	0x0073, r18
+		NOP();
+ 204:	00 00       	nop
+		NOP();
+ 206:	00 00       	nop
+		// output high level of pe[i] to generate rising edge
+		PORTE = 1 << i;
+ 208:	2e b9       	out	0x0e, r18	; 14
+		// wait for PCIF3
+		while(!(PCIFR & (1 << PCIF3)));
+ 20a:	db 9b       	sbis	0x1b, 3	; 27
+ 20c:	fe cf       	rjmp	.-4      	; 0x20a <pci_pe_test+0x48>
+		// clear PCIF3
+		PCIFR = (1 << PCIF3);
+ 20e:	eb bb       	out	0x1b, r30	; 27
+		NOP();
+ 210:	00 00       	nop
+		NOP();
+ 212:	00 00       	nop
+		// output low level of pe[i] to generate falling edge
+		PORTE &= ~(1 << i);
+ 214:	9e b1       	in	r25, 0x0e	; 14
+ 216:	82 2f       	mov	r24, r18
+ 218:	80 95       	com	r24
+ 21a:	89 23       	and	r24, r25
+ 21c:	8e b9       	out	0x0e, r24	; 14
+		// wait for PCIF3
+		while(!(PCIFR & (1 << PCIF3)));
+ 21e:	db 9b       	sbis	0x1b, 3	; 27
+ 220:	fe cf       	rjmp	.-4      	; 0x21e <pci_pe_test+0x5c>
+		// clear PCIF3
+		PCIFR = (1 << PCIF3);
+ 222:	eb bb       	out	0x1b, r30	; 27
+ 224:	4f 5f       	subi	r20, 0xFF	; 255
+ 226:	5f 4f       	sbci	r21, 0xFF	; 255
+	MCUSR |= (1 << SWDD);
+	// enable pe output to generate pulse
+	PORTE = 0x0;
+	DDRE = 0xff;
+	
+	for(i=0x0; i<0x8; i++) {
+ 228:	48 30       	cpi	r20, 0x08	; 8
+ 22a:	51 05       	cpc	r21, r1
+ 22c:	11 f7       	brne	.-60     	; 0x1f2 <pci_pe_test+0x30>
+		// wait for PCIF3
+		while(!(PCIFR & (1 << PCIF3)));
+		// clear PCIF3
+		PCIFR = (1 << PCIF3);
+	}
+	PCMSK3 = 0x0;
+ 22e:	10 92 73 00 	sts	0x0073, r1
+	DDRE = 0x0;
+ 232:	1d b8       	out	0x0d, r1	; 13
+}
+ 234:	08 95       	ret
+
+00000236 <pci_pf_test>:
+
+void pci_pf_test (void)
+{
+	unsigned char i;
+	// enable pf output to generate pulse
+	PORTF = 0x0;
+ 236:	14 ba       	out	0x14, r1	; 20
+	DDRF = 0xff;
+ 238:	8f ef       	ldi	r24, 0xFF	; 255
+ 23a:	83 bb       	out	0x13, r24	; 19
+ 23c:	40 e0       	ldi	r20, 0x00	; 0
+ 23e:	50 e0       	ldi	r21, 0x00	; 0
+	
+	for(i=0x0; i<0x8; i++) {
+		// enable pcint for pf[i]
+		PCMSK4 = 1 << i;
+ 240:	61 e0       	ldi	r22, 0x01	; 1
+ 242:	70 e0       	ldi	r23, 0x00	; 0
+		// output high level of pf[i] to generate rising edge
+		PORTF = 1 << i;
+		// wait for PCIF4
+		while(!(PCIFR & (1 << PCIF4)));
+		// clear PCIF4
+		PCIFR = (1 << PCIF4);
+ 244:	e0 e1       	ldi	r30, 0x10	; 16
+	PORTF = 0x0;
+	DDRF = 0xff;
+	
+	for(i=0x0; i<0x8; i++) {
+		// enable pcint for pf[i]
+		PCMSK4 = 1 << i;
+ 246:	9b 01       	movw	r18, r22
+ 248:	04 2e       	mov	r0, r20
+ 24a:	02 c0       	rjmp	.+4      	; 0x250 <pci_pf_test+0x1a>
+ 24c:	22 0f       	add	r18, r18
+ 24e:	33 1f       	adc	r19, r19
+ 250:	0a 94       	dec	r0
+ 252:	e2 f7       	brpl	.-8      	; 0x24c <pci_pf_test+0x16>
+ 254:	20 93 74 00 	sts	0x0074, r18
+		NOP();
+ 258:	00 00       	nop
+		NOP();
+ 25a:	00 00       	nop
+		// output high level of pf[i] to generate rising edge
+		PORTF = 1 << i;
+ 25c:	24 bb       	out	0x14, r18	; 20
+		// wait for PCIF4
+		while(!(PCIFR & (1 << PCIF4)));
+ 25e:	dc 9b       	sbis	0x1b, 4	; 27
+ 260:	fe cf       	rjmp	.-4      	; 0x25e <pci_pf_test+0x28>
+		// clear PCIF4
+		PCIFR = (1 << PCIF4);
+ 262:	eb bb       	out	0x1b, r30	; 27
+		NOP();
+ 264:	00 00       	nop
+		NOP();
+ 266:	00 00       	nop
+		// output low level of pf[i] to generate falling edge
+		PORTF &= ~(1 << i);
+ 268:	94 b3       	in	r25, 0x14	; 20
+ 26a:	82 2f       	mov	r24, r18
+ 26c:	80 95       	com	r24
+ 26e:	89 23       	and	r24, r25
+ 270:	84 bb       	out	0x14, r24	; 20
+		// wait for PCIF4
+		while(!(PCIFR & (1 << PCIF4)));
+ 272:	dc 9b       	sbis	0x1b, 4	; 27
+ 274:	fe cf       	rjmp	.-4      	; 0x272 <pci_pf_test+0x3c>
+		// clear PCIF4
+		PCIFR = (1 << PCIF4);
+ 276:	eb bb       	out	0x1b, r30	; 27
+ 278:	4f 5f       	subi	r20, 0xFF	; 255
+ 27a:	5f 4f       	sbci	r21, 0xFF	; 255
+	unsigned char i;
+	// enable pf output to generate pulse
+	PORTF = 0x0;
+	DDRF = 0xff;
+	
+	for(i=0x0; i<0x8; i++) {
+ 27c:	48 30       	cpi	r20, 0x08	; 8
+ 27e:	51 05       	cpc	r21, r1
+ 280:	11 f7       	brne	.-60     	; 0x246 <pci_pf_test+0x10>
+		// wait for PCIF4
+		while(!(PCIFR & (1 << PCIF4)));
+		// clear PCIF4
+		PCIFR = (1 << PCIF4);
+	}
+	PCMSK4 = 0x0;
+ 282:	10 92 74 00 	sts	0x0074, r1
+	DDRF = 0x0;
+ 286:	13 ba       	out	0x13, r1	; 19
+}
+ 288:	08 95       	ret
+
+0000028a <_exit>:
+ 28a:	f8 94       	cli
+
+0000028c <__stop_program>:
+ 28c:	ff cf       	rjmp	.-2      	; 0x28c <__stop_program>

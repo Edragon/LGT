@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>2</fileVersion>
+    <fileChecksum>24913951</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\Debug\Exe\lgt8f328p_eepp.bin</file>
+            <file>$PROJ_DIR$\Debug\Exe\lgt8f328p_eepp.hex</file>
+            <file>$PROJ_DIR$\Debug\Exe\lgt8f328p_eepp.eep</file>
+            <file>$PROJ_DIR$\Drivers\Sources\DrvUSART.c</file>
+            <file>$PROJ_DIR$\Drivers\Sources\DrvMISC.c</file>
+            <file>$PROJ_DIR$\Drivers\Sources\DrvSYS.c</file>
+            <file>$PROJ_DIR$\Drivers\Sources\DrvEEPROM.c</file>
+            <file>$PROJ_DIR$\init_auto.c</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$TOOLKIT_DIR$\inc\iom328p.h</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\lgt8f328p_iar.h</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom328p.inc</file>
+            <file>$PROJ_DIR$\Drivers\Includes\lgt8f328p_biar.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\lgt8f328p_ioavr.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\macros_auto.h</file>
+            <file>$TOOLKIT_DIR$\inc\ioavr.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\allinone.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\FSYSCLK.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\DrvUSART.h</file>
+            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\global.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\DrvMISC.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\DrvSYS.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\DrvEEPROM.h</file>
+            <file>$TOOLKIT_DIR$\lib\clib\cl3s-ec_mul-sf.r90</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm328p.xcl</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\DrvEEPROM.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\DrvMISC.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\DrvSYS.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\DrvUSART.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\init_auto.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+            <file>$PROJ_DIR$\Debug\Obj\DrvEEPROM.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\DrvMISC.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\DrvSYS.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\DrvUSART.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\init_auto.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+            <file>$PROJ_DIR$\Debug\Exe\lgt8f328p_eepp.d90</file>
+            <file>$PROJ_DIR$\Debug\Obj\lgt8f328p_eepp.pbd</file>
+        </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 40 0 1 2</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Drivers\Sources\DrvUSART.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 37</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 31</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 19 10 13 21 15 23 9 20 17 16 11 14 18 22 24 12</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 17 16 9 10 12 21 11 13 14 15 18 20 19 22 23 24</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Drivers\Sources\DrvMISC.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 35</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 29</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 22 12 16 14 11 18 24 21 17 13 15 19 23 9 10 20</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 17 16 9 10 12 21 11 13 14 15 18 20 19 22 23 24</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Drivers\Sources\DrvSYS.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 36</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 30</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 24 12 11 18 16 14 22 21 17 13 15 19 23 9 10 20</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 17 16 9 10 12 21 11 13 14 15 18 20 19 22 23 24</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Drivers\Sources\DrvEEPROM.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 34</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 28</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 21 12 23 15 9 13 19 10 17 16 11 14 18 22 24 20</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 17 16 9 10 12 21 11 13 14 15 18 20 19 22 23 24</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\init_auto.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 38</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 32</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 12 18 11 24 16 14 22 21 13 15 19 23 9 10 17 20</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 17 16 9 10 12 21 11 13 14 15 18 20 19 22 23 24</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 39</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 33</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 22 12 16 14 11 18 24 21 13 15 19 23 9 10 17 20</file>
+                </tool>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 17 16 9 10 12 21 11 13 14 15 18 20 19 22 23 24</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\lgt8f328p_eepp.d90</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 0 1 2</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 26 27 28 29 30 31 32 33 25</file>
+                </tool>
+            </inputs>
+        </file>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs>
+            <file>$PROJ_DIR$\Drivers\Sources\DrvUSART.c</file>
+            <file>$PROJ_DIR$\Drivers\Sources\DrvMISC.c</file>
+            <file>$PROJ_DIR$\Drivers\Sources\DrvSYS.c</file>
+            <file>$PROJ_DIR$\Drivers\Sources\DrvEEPROM.c</file>
+            <file>$PROJ_DIR$\init_auto.c</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\Release\Obj\DrvEEPROM.r90</file>
+            <file>$PROJ_DIR$\Release\Obj\DrvMISC.r90</file>
+            <file>$PROJ_DIR$\Release\Obj\DrvSYS.r90</file>
+            <file>$TOOLKIT_DIR$\inc\iom328p.h</file>
+            <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\lgt8f328p_iar.h</file>
+            <file>$PROJ_DIR$\lgt8f328p_eepp.hex</file>
+            <file>$PROJ_DIR$\Release\Obj\DrvUSART.r90</file>
+            <file>$PROJ_DIR$\lgt8f328p_eepp.eep</file>
+            <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom328p.inc</file>
+            <file>$PROJ_DIR$\Release\Obj\main.r90</file>
+            <file>$PROJ_DIR$\Release\Obj\init_auto.r90</file>
+            <file>$PROJ_DIR$\Drivers\Includes\lgt8f328p_biar.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\lgt8f328p_ioavr.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\macros_auto.h</file>
+            <file>$TOOLKIT_DIR$\inc\ioavr.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\allinone.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\FSYSCLK.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\DrvUSART.h</file>
+            <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\global.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\DrvMISC.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\DrvSYS.h</file>
+            <file>$PROJ_DIR$\Drivers\Includes\DrvEEPROM.h</file>
+            <file>$TOOLKIT_DIR$\lib\clib\cl3s-ec_mul-sf.r90</file>
+            <file>$PROJ_DIR$\lgt8f328p_eepp.bin</file>
+            <file>$TOOLKIT_DIR$\src\template\cfgm328p.xcl</file>
+            <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+        </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 12 31 14</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Drivers\Sources\DrvUSART.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 13</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 22 21 9 10 15 26 11 18 19 20 23 25 24 27 28 29</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Drivers\Sources\DrvMISC.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 7</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 22 21 9 10 15 26 11 18 19 20 23 25 24 27 28 29</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Drivers\Sources\DrvSYS.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 8</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 22 21 9 10 15 26 11 18 19 20 23 25 24 27 28 29</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Drivers\Sources\DrvEEPROM.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 6</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 22 21 9 10 15 26 11 18 19 20 23 25 24 27 28 29</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\init_auto.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 17</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 22 21 9 10 15 26 11 18 19 20 23 25 24 27 28 29</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 16</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCAVR</name>
+                    <file> 22 21 9 10 15 26 11 18 19 20 23 25 24 27 28 29</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\lgt8f328p_eepp.hex</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 31 14</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 32 33 6 7 8 13 17 16 30</file>
+                </tool>
+            </inputs>
+        </file>
+    </configuration>
+</project>

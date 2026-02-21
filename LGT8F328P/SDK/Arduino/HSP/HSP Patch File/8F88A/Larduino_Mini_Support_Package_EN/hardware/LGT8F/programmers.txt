@@ -1,0 +1,6 @@
+# See: http://code.google.com/p/arduino/wiki/Platforms
+
+lgtmkii.name=LGTSWD mkII as ISP
+lgtmkii.communication=usb
+lgtmkii.protocol=jtag2isp
+lgtmkii.force=true

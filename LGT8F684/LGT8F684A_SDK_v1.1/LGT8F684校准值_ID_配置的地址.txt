@@ -1,0 +1,44 @@
+
+校准值地址：
+
+0xC8：8M triming
+0xC9：16M trimming
+0xCA：1M trimming
+0xCB：read "0x5A"
+
+ID地址：
+
+CC/CD/CE/CF
+
+
+配置位地址：
+
+0xC0：CF1_L
+0xC1：CF1_H
+
+0xC2：CF2_L
+0xC3：CF2_H
+
+
+检测后配置：
+
+	uint8_t tmp;
+	tmp = *((uint8_t *)0xC0)&0x18;	// 读出时钟配置位
+
+	if(tmp==0)			// 时钟配置RCM为0时就是1M
+	{
+		OSCTUNE = *((uint8_t *)0xCA);	// 1M的地址=0xCA
+	}
+	else if(tmp==0x08)	// RCM=1时配置为8M，RCM=2时配置为16M
+	{
+		OSCTUNE = *((uint8_t *)0xC8);	// 8M的地址=0xC8	
+	}
+	else
+	{
+		OSCTUNE = *((uint8_t *)0xC9);	// 16M的地址=0xC9	
+	}
+
+直接配置：
+	OSCTUNE = *((uint8_t *)0xC8);	// 8M的地址=0xC8，16M的地址=0xC9，1M的地址=0xCA
+
+
